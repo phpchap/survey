@@ -23,3 +23,6 @@ Route::any('/products', 'HomeController@showProducts');
 
 // thanks
 Route::any('/thanks', 'HomeController@thanks');
+
+// about us
+Route::any('/about-us', 'HomeController@aboutUs');

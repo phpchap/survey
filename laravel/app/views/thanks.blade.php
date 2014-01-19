@@ -11,7 +11,6 @@
 @stop
 
 @section('content')
-
 <div class="jumbotron">
     <h1>Thank you for your feedback!</h1>
     <p class="lead">If you would like to hear more about toowrappedup.com, you can join our mailing list</p>
@@ -21,10 +20,5 @@
     </div>
     <p><a class="btn btn-lg btn-success" href="#" role="button">Join Mailing List</a></p>
     {{ Form::close() }}
-
 </div>
-
-
-
-
 @stop

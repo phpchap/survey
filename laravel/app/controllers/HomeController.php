@@ -15,6 +15,10 @@ class HomeController extends BaseController {
         $this->layout->content = View::make('home');        
     }
 
+    public function aboutUs() {
+        $this->layout->content = View::make('about-us');
+    }
+
     public function thanks() {
         $this->layout->content = View::make('thanks');
     }
