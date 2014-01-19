@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+App::bind('GroupRepository', 'EloquentGroupRepository');
+App::bind('ProductRepository', 'EloquentProductRepository');
+App::bind('ReportRepository', 'EloquentReportRepository');
+
+// home page
+Route::any('/', 'HomeController@home');
+
+// show products
+Route::any('/products', 'HomeController@showProducts');
+
+// thanks
+Route::any('/thanks', 'HomeController@thanks');
