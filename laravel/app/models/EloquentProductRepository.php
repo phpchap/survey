@@ -11,7 +11,9 @@ class EloquentProductRepository implements ProductRepository {
     }
     
     public function getNext($id = ""){
+
         return ($id == "") ? Product::all()->first() : Product::where('id', '>' , $id)->first();
+
     }
         
     public function getPrevious($id = ""){

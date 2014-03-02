@@ -12,6 +12,26 @@ class Report extends Eloquent {
         return $this->belongsTo('Product');
     }
 
+    /**
+     * Get the step in the report
+     * @return int
+     */
+    public function getStep()
+    {
+        return ($this->step == null) ? 1 : $this->step;
+    }
+
+    /**
+     * Increment the step
+     * @return void
+     */
+    public function bumpStep()
+    {
+        $this->step = $this->getStep();
+        $this->step++;
+    }
+
+
     public function optionsMap($id)
     {
         $options[1] = "I wouldn't buy this";
@@ -31,7 +51,7 @@ class Report extends Eloquent {
         $this->q2           = (!empty($input['q2'])) ? implode(", ", $input['q2']) : "";
         $this->q3           = (!empty($input['q3'])) ? $input['q3'] : "";
         $this->q4           = (!empty($input['q4'])) ? $input['q4'] : "";
-        $this->session      = session_id();
+        $this->session_id      = session_id();
         $this->product_id   = $product->id;
 
         $this->save();

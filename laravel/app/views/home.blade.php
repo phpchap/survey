@@ -3,7 +3,7 @@
 <div class="header">
     <ul class="nav nav-pills pull-right">
         <li class="active"><?php echo link_to('/', 'Home'); ?></a></li>
-        <li><?php echo link_to('/products', 'Gift Chooser'); ?></li>
+        <li><?php echo link_to('/questions', 'Start Questionaire'); ?></li>
         <li><?php echo link_to('/about-us', 'About Us'); ?></li>
     </ul>
     <h3 class="text-muted">TooWrappedUp</h3>

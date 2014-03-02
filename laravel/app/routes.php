@@ -21,6 +21,9 @@ Route::any('/', 'HomeController@home');
 // show products
 Route::any('/products', 'HomeController@showProducts');
 
+// show questions
+Route::any('/questions', 'HomeController@questions');
+
 // thanks
 Route::any('/thanks', 'HomeController@thanks');
 

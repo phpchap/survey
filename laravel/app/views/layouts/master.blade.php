@@ -9,7 +9,7 @@
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
         <title>TooWrappedUp - Gift Chooser</title>
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.css" rel="stylesheet">        
+        <link href="css/bootstrap.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/jumbotron-narrow.css" rel="stylesheet">
         <link href="css/slider.css" rel="stylesheet">
@@ -18,45 +18,40 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        
+        <link rel="stylesheet" type="text/css" href="//loopj.com/css/highlight.css" />
+        <link rel="stylesheet" href="http://loopj.com/jquery-simple-slider/css/simple-slider.css" type="text/css" />
+        <link rel="stylesheet" href="/css/simple-slider-volume.css" type="text/css" />
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://loopj.com/jquery-simple-slider/js/simple-slider.js"></script>
+
+        <style>
+            .mandatory {
+                color:red;
+            }
+            .well {
+                background-color: #F5F5F5;
+                border: 1px solid #E3E3E3;
+                border-radius: 4px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+                margin-bottom: 20px;
+                min-height: 20px;
+                padding: 10px;
+            }
+            body{
+                font-size: 12px;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             @yield('navigation')
             @yield('content')
             <div class="footer">
-                <p>&copy; TooWrappedUp.com 2014</p>
+
             </div>
         </div> <!-- /container -->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-slider.js"></script>        
-        <script type="text/javascript">
-            $(document).ready(function(){       
-                $('#slider').slider({
-                    min: 1,
-                    max: 3,
-                    value: 1,
-                    formater: function(value) {
-                        
-                        var opinionArray = new Array;
-                        
-                        opinionArray[1] = "I don't really like this :(";
-                        opinionArray[2] = "It's OK :)";
-                        opinionArray[3] = "It's great :D";
-                        //opinionArray[4] = "Definately buy it for someone";
-                        
-                        $("#opinion_text").html(opinionArray[value]);                        
-                        $("#opinion").val(opinionArray[value]);
-                        
-                        return opinionArray[value];
-                        
-                    }
-                });
-            });
-        </script>
-
     </body>
 </html>

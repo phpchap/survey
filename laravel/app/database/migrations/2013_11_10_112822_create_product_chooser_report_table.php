@@ -25,6 +25,7 @@ class CreateProductChooserReportTable extends Migration {
             $table->integer('display_count');            
             $table->string('hash');            
             $table->string('title');
+            $table->string('csv_item_no');
             $table->string('picture_url_1');    
             $table->string('picture_url_2');                
             $table->string('product_type');                        
@@ -38,16 +39,45 @@ class CreateProductChooserReportTable extends Migration {
         // create report
         Schema::create('reports', function($table){
                 $table->increments('id');
-                $table->text('session');
+                $table->text('session_id');
                 $table->text('step');
-                $table->text('q1');
-                $table->text('q2');
-                $table->text('q3');
-                $table->text('q4');
+                $table->text('ip');
+                $table->timestamps();
+            });
+
+        // create product answers
+        Schema::create('product_answers', function($table){
+                $table->increments('id');
+                $table->integer('question_one');
+                $table->integer('question_two');
+                $table->integer('question_three');
+                $table->integer('question_four');
+                $table->string('answer_one');
+                $table->string('answer_one_index');
+                $table->string('answer_two');
+                $table->string('answer_two_index');
+                $table->string('answer_three');
+                $table->string('answer_four');
                 $table->timestamps();
                 // foreign key
                 $table->integer('product_id')->unsigned();
                 $table->foreign('product_id')->references('id')->on('products')->unsigned();
+                // foreign key
+                $table->integer('report_id')->unsigned();
+                $table->foreign('report_id')->references('id')->on('reports')->unsigned();
+            });
+
+        // create answers
+        Schema::create('answers', function($table){
+                $table->increments('id');
+                $table->integer('question_number');
+                $table->string('question');
+                $table->string('answer');
+                $table->string('answer_index');
+                $table->timestamps();
+                // foreign key
+                $table->integer('report_id')->unsigned();
+                $table->foreign('report_id')->references('id')->on('reports')->unsigned();
             });
     }
 

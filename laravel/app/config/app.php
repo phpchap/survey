@@ -113,8 +113,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-                'Way\Generators\GeneratorsServiceProvider',
-                'Conarwelsh\MustacheL4\MustacheL4ServiceProvider',            
+        'Way\Generators\GeneratorsServiceProvider',
 	),
 
 	/*
