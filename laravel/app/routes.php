@@ -22,7 +22,7 @@ Route::any('/', 'HomeController@home');
 Route::any('/products', 'HomeController@showProducts');
 
 // show questions
-Route::any('/questions', 'HomeController@questions');
+Route::any('/survey', 'HomeController@survey');
 
 // thanks
 Route::any('/thanks', 'HomeController@thanks');

@@ -27,45 +27,55 @@
 
 <div class="row">
 
-    {{ Form::open(array('url' => '/questions')) }}
+    {{ Form::open(array('url' => '/survey')) }}
+
+    <input type="hidden" name="s" value="1"/>
 
     <div class="col-lg-12">
 
         <!-- Question Ten-->
-        <div class="well">
-            <h4><?php echo $questionsAr[10];?><span class="mandatory">*</span></h4>
-            <?php
-
-//            $q10Ar[] = "Yes";
-//            $q10Ar[] = "No";
-
-            // question ten
-            foreach ($q10Ar as $id => $qval) {
+        <div class="form-group <?php echo (!empty($validationErrorAr['q10'])) ? "has-error has-feedback" : ""; ?>">
+            <div class="well">
+                <h4><?php echo $questionsAr[10];?><?php echo (!empty($validationErrorAr['q10']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q10'] . "</span>" : ""; ?></h4>
+                <?php
+                // question ten
+                foreach ($q10Ar as $id => $qval) {
+                    ?>
+                    <label class="radio-inline">
+                        <input type="radio" name="q10" id="q10"
+                               value="<?php echo $qval; ?>">
+                        <?php echo $qval; ?>
+                    </label>
+                <?php
+                }
                 ?>
-                <label class="radio-inline">
-                    <input type="radio" name="q10" id="q10"
-                           value="<?php echo $qval; ?>">
-                    <?php echo $qval; ?>
-                </label>
-            <?php
-            }
-            ?>
+            </div>
         </div>
 
         <!-- Question Eleven -->
-        <div class="well">
-            <h4><?php echo $questionsAr[11];?><span class="mandatory">*</span></h4>
-            <label class="radio-inline">
-                <textarea name="q11" class="form-control" rows="2"></textarea>
-            </label>
+        <div class="form-group <?php echo (!empty($validationErrorAr['q11'])) ? "has-error has-feedback" : ""; ?>">
+            <div class="well">
+                <h4><?php echo $questionsAr[11];?><?php echo (!empty($validationErrorAr['q11']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q11'] . "</span>" : ""; ?></h4>
+                <label class="radio-inline">
+                    <textarea name="q11" class="form-control" rows="2"></textarea>
+                </label>
+            </div>
         </div>
 
         <!-- Question Twelve -->
-        <div class="well">
-            <h4><?php echo $questionsAr[12];?><span class="mandatory">*</span></h4>
-            <label class="radio-inline">
-                <textarea name="q12" class="form-control" rows="2"></textarea>
-            </label>
+        <div class="form-group <?php echo (!empty($validationErrorAr['q12'])) ? "has-error has-feedback" : ""; ?>">
+            <div class="well">
+                <h4><?php echo $questionsAr[12];?><?php echo (!empty($validationErrorAr['q12']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q12'] . "</span>" : ""; ?></h4>
+                <label class="radio-inline">
+                    <textarea name="q12" class="form-control" rows="2"></textarea>
+                </label>
+            </div>
         </div>
 
         <div class="col-lg-12">

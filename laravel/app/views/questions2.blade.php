@@ -27,84 +27,76 @@
 
 <div class="row">
 
-    {{ Form::open(array('url' => '/questions')) }}
+    {{ Form::open(array('url' => '/survey')) }}
+
+    <input type="hidden" name="s" value="1"/>
 
     <div class="col-lg-12">
-
-        <!-- Question Four -->
-        <div class="well">
-            <h4><?php echo $questionsAr[4];?><span class="mandatory">*</span></h4>
-            <?php
-//            $q4Ar[] = "Very easy, as I live/work near card shops";
-//            $q4Ar[] = "Very easy, I purchase online";
-//            $q4Ar[] = "Not very easy, as I work long hours";
-//            $q4Ar[] = "Not very easy, as I don’t live/work near card shops";
-//            $q4Ar[]
-//                = "Not very easy, as the card shops near me aren’t very good";
-//            $q4Ar[] = "I prefer to purchase wrapping paper/cards at the weekend";
-
-            // question four
-            foreach ($q4Ar as $id => $qval) {
+        <div class="form-group <?php echo (!empty($validationErrorAr['q4'])) ? "has-error has-feedback" : ""; ?>">
+            <!-- Question Four -->
+            <div class="well">
+                <h4><?php echo $questionsAr[4];?><?php echo (!empty($validationErrorAr['q4']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q4'] . "</span>" : ""; ?></h4>
+                <?php
+                // question four
+                foreach ($q4Ar as $id => $qval) {
+                    ?>
+                    <div class="checkbox">
+                        <label class="checkbox">
+                            <input type="checkbox" name="q4[]" id="q4"
+                                   value="<?php echo $qval; ?>">
+                            <?php echo $qval; ?>
+                        </label>
+                    </div>
+                <?php
+                }
                 ?>
-                <div class="checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" name="q4[]" id="q4"
-                               value="<?php echo $qval; ?>">
-                        <?php echo $qval; ?>
-                    </label>
-                </div>
-            <?php
-            }
-            ?>
+            </div>
         </div>
         <!-- Question Five -->
-        <div class="well">
-            <h4><?php echo $questionsAr[5];?><span class="mandatory">*</span></h4>
-            <?php
-//            $q5Ar[] = "Friends";
-//            $q5Ar[] = "Family";
-//            $q5Ar[] = "Partners";
-//            $q5Ar[] = "Myself";
-//            $q5Ar[] = "No one";
+        <div class="form-group <?php echo (!empty($validationErrorAr['q5'])) ? "has-error has-feedback" : ""; ?>">
+            <div class="well">
+                <h4><?php echo $questionsAr[5];?><?php echo (!empty($validationErrorAr['q5']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q5'] . "</span>" : ""; ?></h4>
+                <?php
+                // question five
+                foreach ($q5Ar as $id => $qval) {
+                    ?>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="q5[]" id="q5"
+                                   value="<?php echo $qval; ?>">
+                            <?php echo $qval; ?>
+                        </label>
 
-            // question five
-            foreach ($q5Ar as $id => $qval) {
+                <?php
+                }
                 ?>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="q5[]" id="q5"
-                               value="<?php echo $qval; ?>">
-                        <?php echo $qval; ?>
-                    </label>
-
-            <?php
-            }
-            ?>
+            </div>
         </div>
 
         <!-- Question Six -->
-        <div class="well">
-            <h4><?php echo $questionsAr[6];?><span class="mandatory">*</span></h4>
-            <?php
-//            $q6Ar[] = "Never";
-//            $q6Ar[] = "Once a year";
-//            $q6Ar[] = "Every few months";
-//            $q6Ar[] = "Every month";
-//            $q6Ar[] = "Every week";
-
-            // question six
-            foreach ($q6Ar as $id => $qval) {
-                ?>
-                <label class="radio-inline">
-                    <input type="radio" name="q6" id="q6"
-                           value="<?php echo $qval; ?>">
-                    <?php echo $qval; ?>
-                </label>
-            <?php } ?>
-
+        <div class="form-group <?php echo (!empty($validationErrorAr['q6'])) ? "has-error has-feedback" : ""; ?>">
+            <div class="well">
+                <h4><?php echo $questionsAr[6];?><?php echo (!empty($validationErrorAr['q6']))
+                        ? " <span class='invalid'>"
+                        . $validationErrorAr['q6'] . "</span>" : ""; ?></h4>
+                <?php
+                // question six
+                foreach ($q6Ar as $id => $qval) {
+                    ?>
+                    <label class="radio-inline">
+                        <input type="radio" name="q6" id="q6"
+                               value="<?php echo $qval; ?>">
+                        <?php echo $qval; ?>
+                    </label>
+                <?php } ?>
+            </div>
         </div>
+
         <div class="col-lg-12">
-            <button type="submit" class="btn btn-success pull-right">Next
-            </button>
+            <button type="submit" class="btn btn-success pull-right">Next</button>
         </div>
         {{ Form::close() }}
     </div>

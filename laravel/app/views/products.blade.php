@@ -29,7 +29,7 @@
 
 <div class="row">
 
-    {{ Form::open(array('url' => '/questions')) }}
+    {{ Form::open(array('url' => '/survey')) }}
 
     <div class="col-lg-12">
         <div class="col-sm-6 col-md-4 col-lg-6">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group <?php echo (!empty($validationErrorAr['q1'])) ? "has-error has-feedback" : ""; ?>">
                 <div class="well">
                     <script>
                         $(document).ready(function () {
@@ -53,8 +53,8 @@
                             var opinionArray = new Array;
 
                             opinionArray[10] = "I don't really like this :(";
-                            opinionArray[20] = "It's OK :)";
-                            opinionArray[30] = "It's great :D";
+                            opinionArray[20] = "It's OK";
+                            opinionArray[30] = "It's great :)";
 
                             $("#theSlider")
                                 .bind("slider:ready slider:changed", function (event, data) {
@@ -63,7 +63,10 @@
                                 });
                         })
                     </script>
-                    <p>1) What do you think about this?</p>
+                    <p>1) What do you think about this? <span style="font-style: italic">Use the slider below</span><?php echo (!empty($validationErrorAr['q1']))
+                            ? " <br/><span class='invalid'>"
+                            . $validationErrorAr['q1'] . "</span>" : ""; ?></p>
+
                     <input value="20" type="text" id="theSlider"
                            data-slider="true"
                            data-slider-range="10,30" data-slider-step="10"
@@ -71,8 +74,8 @@
                            data-slider-highlight="true"/>
                     <span style="vertical-align: top"></span>
 
-                    <p id="opinion_text">It's OK :)</p>
-                    <input type="hidden" name="opinion" value="It's OK :)"/>
+                    <p id="opinion_text">It's OK</p>
+                    <input type="hidden" name="opinion" value="It's OK"/>
                 </div>
             </div>
 
@@ -85,76 +88,65 @@
                    value="<?php echo $product->hash; ?>">
 
             <div class="checkbox" style="padding:0;margin-top: 0;">
-                <div class="well">
-                    <p>2) Please choose all that apply</p>
-                    <label>
-                        <input type="checkbox"
-                               value="I wouldnt buy this"
-                               name="q2[]" style="margin:3px 5px 0 0;">
+                <div class="form-group <?php echo (!empty($validationErrorAr['q2']))
+                    ? "has-error has-feedback" : ""; ?>">
+                    <div class="well">
+                        <p>2) Please choose all that apply <?php echo (!empty($validationErrorAr['q2']))
+                                ? " <br/><span class='invalid'>"
+                                . $validationErrorAr['q2'] . "</span>" : ""; ?></p>
+                        <label>
+                            <input type="checkbox"
+                                   value="I would buy this for a friend" name="q2[]"
+                                   style="margin:3px 5px 0 0;">
+                            <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>> I <b>would</b> buy this for a friend</p>
+                        </label>
+                        <label>
+                            <input type="checkbox"
+                                   value="I would buy this someone in my family"
+                                   name="q2[]" style="margin:3px 5px 0 0;">
 
-                        <p>I <b>wouldn't</b> buy this</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="I would buy this for a friend" name="q2[]"
-                               style="margin:3px 5px 0 0;">
-
-                        <p>I <b>would</b> buy this for a friend</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="I would buy this someone in my family"
-                               name="q2[]" style="margin:3px 5px 0 0;">
-
-                        <p>I <b>would</b> buy this someone in my family</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="I'd quite like this for myself"
-                               name="q2[]" style="margin:3px 5px 0 0;">
-
-                        <p>I'd quite like this for myself</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="I'd like to buy this for someone right now"
-                               name="q2[]" style="margin:3px 5px 0 0;">
-
-                        <p>I'd like to buy this for someone right now</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="I've seen this product before" name="q2[]"
-                               style="margin:3px 5px 0 0;">
-
-                        <p>I've seen this product before</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"
-                               value="This is the first time I've seen this product"
-                               name="q2[]" style="margin:3px 5px 0 0;">
-
-                        <p>This is the first time I've seen this product</p>
-                    </label>
+                            <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I <b>would</b> buy this someone in my family</p>
+                        </label>
+                        <label>
+                            <input type="checkbox"
+                                   value="I'd quite like this for myself"
+                                   name="q2[]" style="margin:3px 5px 0 0;">
+                            <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I'd quite like this for myself</p>
+                        </label>
+                        <label>
+                            <input type="checkbox"
+                                   value="I'd like to buy this for someone right now"
+                                   name="q2[]" style="margin:3px 5px 0 0;">
+                            <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I'd like to buy this for someone right now</p>
+                        </label>
+                        <label>
+                            <input type="checkbox"
+                                   value="I've seen this product before" name="q2[]"
+                                   style="margin:3px 5px 0 0;">
+                            <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I've seen this product before</p>
+                        </label>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group" id="spend">
-                <div class="well">
-                    <p class="pull-left">3) I would buy this for &nbsp;</p>
-
-                    <div class="input-group col-lg-5 pull-left">
-                        <span class="input-group-addon">£</span>
-                        <input type="text" name="q3" class="form-control">
+                <div class="form-group <?php echo (!empty($validationErrorAr['q3'])) ? "has-error has-feedback" : ""; ?>">
+                    <div class="well">
+                        <p class="pull-left">3) The most i would pay for this is: &nbsp;<?php echo (!empty($validationErrorAr['q3']))
+                                ? " <br/><span class='invalid'>"
+                                . $validationErrorAr['q3'] . "</span>" : ""; ?></p>
+                        <div class="input-group col-lg-4 pull-left">
+                            <span class="input-group-addon">£</span>
+                            <input type="text" name="q3" class="form-control">
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-
-                    <div class="clearfix"></div>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="well">
-                    <p>4) Do you have feedback on this product?</p>
+                    <p>4) Do you have other feedback on this product?</p>
                     <textarea class="form-control" rows="2"
                               name="q4"></textarea>
                 </div>

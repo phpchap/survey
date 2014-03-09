@@ -37,22 +37,19 @@ class ImportDataFromCSV extends Command
      */
     public function fire()
     {
-        // set the path to the CSV
-        $csvFile = storage_path(). '/csv/Product_Inventory_WIP.csv';
-//
-        $row = 2;
+        $row = 1;
 
         // define the column list
         $colAr["ItemNo"] = 0;
         $colAr["Title"] = 1;
-        $colAr["Dims"] = 2;
-        $colAr["Supplier"] = 3;
-        $colAr["WsalePrice"] = 4;
-        $colAr["CarriageFee"] = 5;
-        $colAr["Cat"] = 6;
-        $colAr["WaiverMinOrder"] = 7;
-        $colAr["RRP"] = 8;
-        $colAr["Description"] = 9;
+//        $colAr["Dims"] = 2;
+//        $colAr["Supplier"] = 3;
+//        $colAr["WsalePrice"] = 4;
+//        $colAr["CarriageFee"] = 5;
+//        $colAr["Cat"] = 6;
+//        $colAr["WaiverMinOrder"] = 7;
+//        $colAr["RRP"] = 8;
+        $colAr["Description"] = 2;
 
         // ignored titles
         $ignoredTitleAr["WRAP"] = 1;
@@ -73,7 +70,7 @@ class ImportDataFromCSV extends Command
         $ignoredTitleAr["PRINTS"] = 1;
 
         // set the path to the CSV
-        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Inventory_WIP.csv');
+        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_FINAL.csv');
 
         $counter = 0;
 
@@ -90,7 +87,10 @@ class ImportDataFromCSV extends Command
 
                 // we only want numbered rows
                 if ($row[$colAr["ItemNo"]] != "") {
-
+                    if(count($row) > 3) {
+                        print_r($row);
+                        die;
+                    }
                     // define the column list
                     $itemNo = addslashes($row[$colAr["ItemNo"]]);
                     $title = addslashes($row[$colAr["Title"]]);
@@ -101,7 +101,11 @@ class ImportDataFromCSV extends Command
 //                    $category = utf8_encode(addslashes($row[$colAr["Cat"]]));
 //                    $waiverMinOrder = utf8_encode(addslashes($row[$colAr["WaiverMinOrder"]]));
 //                    $rrp = utf8_encode(addslashes($row[$colAr["RRP"]]));
-                    $description = addslashes($row[$colAr["Description"]]);
+                    if(!empty($row[$colAr["Description"]])) {
+                        $description = addslashes($row[$colAr["Description"]]);
+                    } else {
+                        $description = "";
+                    }
 
                     // do we need to ignore this row?
                     if (!empty($ignoredTitleAr[$title]) AND

@@ -18,18 +18,17 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-        <link rel="stylesheet" type="text/css" href="//loopj.com/css/highlight.css" />
-        <link rel="stylesheet" href="http://loopj.com/jquery-simple-slider/css/simple-slider.css" type="text/css" />
-        <link rel="stylesheet" href="/css/simple-slider-volume.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="/css/highlight.css" />
+        <link rel="stylesheet" type="text/css" href="/css/simple-slider.css" />
+        <link rel="stylesheet" type="text/css" href="/css/simple-slider-volume.css" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="http://loopj.com/jquery-simple-slider/js/simple-slider.js"></script>
-
+        <script type="text/javascript" src="/js/simple-slider.js"></script>
         <style>
             .mandatory {
-                color:red;
+                display: none;
             }
             .well {
                 background-color: #F5F5F5;
@@ -43,15 +42,23 @@
             body{
                 font-size: 12px;
             }
+            .form-group {
+                margin-bottom: 0;
+            }
+            .invalid {
+                color:#A94442;
+                font-style:italic;
+            }
+            .invalid_text {
+                color:#A94442;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             @yield('navigation')
             @yield('content')
-            <div class="footer">
-
-            </div>
+            <div class="footer"></div>
         </div> <!-- /container -->
     </body>
 </html>

@@ -11,8 +11,9 @@ class HomeController extends BaseController {
         $this->reports = $reports;
     }
 
-    public function questions()
+    public function survey()
     {
+
         // have we finished?
         if( Session::has('completed_product_questions') && Session::get('completed_product_questions') == true &&
             Session::has('completed_questions') && Session::get('completed_questions') == true)
@@ -163,299 +164,438 @@ class HomeController extends BaseController {
         $q16Ar[] = "I prefer gift bags";
         $q16Ar[] = "I wish I was better at wrapping presents, but I’m not sure how to do it properly";
 
+        $validationErrorAr = array();
+
         // first questions
-        if (Input::has('q1') && Input::has('q2') && Input::has('q3'))
+        if ($page == 1 && Input::has('s') || Input::has('q1') && Input::has('q2') && Input::has('q3'))
         {
             $input = Input::all();
 
             /////////////////////////////////////////
 
-            $q1 = $input['q1'];
-            $q1IdxAr = array();
+            if(!isset($input['q1'])) {
 
-            foreach($q1Ar as $idx => $v) {
-                if($v == $q1) {
-                    $q1IdxAr[] = $idx;
-                }
-            }
+                $validationErrorAr["q1"] = "Please answer question 1";
 
-            $this->reports->doAnswer($report->id, 1, $questionsAr[1], $q1, implode(", ", $q1IdxAr));
+            } else {
 
-            /////////////////////////////////////////
+                $q1 = $input['q1'];
+                $q1IdxAr = array();
 
-            $q2 = $input['q2'];
-            $q2IdxAr = array();
-
-            foreach($q2Ar as $idx => $v) {
-                if($v == $q2) {
-                    $q2IdxAr[] = $idx;
-                }
-            }
-
-            $this->reports->doAnswer($report->id, 2, $questionsAr[2], $q2, implode(", ", $q2IdxAr));
-
-            /////////////////////////////////////////
-
-            $q3 = $input['q3'];
-            $q3IdxAr = array();
-
-            foreach($q3Ar as $idx => $v) {
-                foreach($q3 as $q3a) {
-                    if($v == $q3a) {
-                        $q3IdxAr[] = $idx;
+                foreach($q1Ar as $idx => $v) {
+                    if($v == $q1) {
+                        $q1IdxAr[] = $idx;
                     }
                 }
+
+                $this->reports->doAnswer($report->id, 1, $questionsAr[1], $q1, implode(", ", $q1IdxAr));
+
             }
 
-            $this->reports->doAnswer($report->id, 3, $questionsAr[3], implode(", ", $q3), implode(", ", $q3IdxAr));
+            /////////////////////////////////////////
 
-            // bump the next page
-            $page = 2;
-            $nextPage = 3;
+            if(!isset($input['q2'])) {
+                $validationErrorAr["q2"] = "Please answer question 2";
+            } else {
 
-            $report->bumpStep();
-            $report->save();
+                $q2 = $input['q2'];
+                $q2IdxAr = array();
 
-            // set the page in the session
-            Session::set('page', $page);
-            Session::set('nextPage', $nextPage);
+                foreach($q2Ar as $idx => $v) {
+                    if($v == $q2) {
+                        $q2IdxAr[] = $idx;
+                    }
+                }
+
+                $this->reports->doAnswer($report->id, 2, $questionsAr[2], $q2, implode(", ", $q2IdxAr));
+            }
+
+            /////////////////////////////////////////
+
+            if(!isset($input['q3'])) {
+                $validationErrorAr["q3"] = "Please answer question 3";
+            } else {
+
+                $q3 = $input['q3'];
+                $q3IdxAr = array();
+
+                foreach($q3Ar as $idx => $v) {
+                    foreach($q3 as $q3a) {
+                        if($v == $q3a) {
+                            $q3IdxAr[] = $idx;
+                        }
+                    }
+                }
+
+                $this->reports->doAnswer($report->id, 3, $questionsAr[3], implode(", ", $q3), implode(", ", $q3IdxAr));
+            }
+
+            // if we don't have any validation errors then proceed
+            if(empty($validationErrorAr)) {
+                // bump the next page
+                $page = 2;
+                $nextPage = 3;
+
+                $report->step = $nextPage;
+                $report->save();
+
+                // set the page in the session
+                Session::set('page', $page);
+                Session::set('nextPage', $nextPage);
+            }
 
         // second questions
-        } else if (Input::has('q4') && Input::has('q5') && Input::has('q6')) {
+        } else if ($page == 2 && Input::has('s') || Input::has('q4') && Input::has('q5') && Input::has('q6')) {
 
             $input = Input::all();
 
             /////////////////////////////////////////
 
-            $q4 = $input['q4'];
-            $q4IdxAr = array();
+            if(!isset($input['q4'])) {
 
-            foreach($q4Ar as $idx => $v) {
-                foreach($q4 as $q4a) {
-                    if($v == $q4a) {
-                        $q4IdxAr[] = $idx;
+                $validationErrorAr["q4"] = "Please answer question 4";
+
+            } else {
+
+                $q4 = $input['q4'];
+                $q4IdxAr = array();
+
+                foreach($q4Ar as $idx => $v) {
+                    foreach($q4 as $q4a) {
+                        if($v == $q4a) {
+                            $q4IdxAr[] = $idx;
+                        }
                     }
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 4, $questionsAr[4], implode(", ", $q4), implode(", ", $q4IdxAr));
+                $this->reports->doAnswer($report->id, 4, $questionsAr[4], implode(", ", $q4), implode(", ", $q4IdxAr));
+
+            }
 
             /////////////////////////////////////////
 
-            $q5 = $input['q5'];
-            $q5IdxAr = array();
+            if(!isset($input['q5'])) {
 
-            foreach($q5Ar as $idx => $v) {
-                foreach($q5 as $q5a) {
-                    if($v == $q5a) {
-                        $q5IdxAr[] = $idx;
+                $validationErrorAr["q5"] = "Please answer question 5";
+
+            } else {
+
+                $q5 = $input['q5'];
+                $q5IdxAr = array();
+
+                foreach($q5Ar as $idx => $v) {
+                    foreach($q5 as $q5a) {
+                        if($v == $q5a) {
+                            $q5IdxAr[] = $idx;
+                        }
                     }
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 5, $questionsAr[5], implode(", ", $q5), implode(", ", $q5IdxAr));
+                $this->reports->doAnswer($report->id, 5, $questionsAr[5], implode(", ", $q5), implode(", ", $q5IdxAr));
+
+            }
 
             /////////////////////////////////////////
 
-            $q6 = $input['q6'];
-            $q6IdxAr = array();
+            if(!isset($input['q6'])) {
 
-            foreach($q6Ar as $idx => $v) {
-                if($v == $q6) {
-                    $q6IdxAr[] = $idx;
+                $validationErrorAr["q6"] = "Please answer question 6";
+
+            } else {
+
+                $q6 = $input['q6'];
+                $q6IdxAr = array();
+
+                foreach($q6Ar as $idx => $v) {
+                    if($v == $q6) {
+                        $q6IdxAr[] = $idx;
+                    }
                 }
+
+                $this->reports->doAnswer($report->id, 6, $questionsAr[6], $q6, implode(", ", $q6IdxAr));
+
             }
 
-            $this->reports->doAnswer($report->id, 6, $questionsAr[6], $q6, implode(", ", $q6IdxAr));
+            // if we don't have any validation errors then proceed to the next step
+            if(empty($validationErrorAr)) {
 
-            // bump the next page
-            $page = 3;
-            $nextPage = 4;
+                // bump the next page
+                $page = 3;
+                $nextPage = 4;
 
-            $report->bumpStep();
-            $report->save();
+                $report->step = $nextPage;
+                $report->save();
 
-            // set the page in the session
-            Session::set('page', $page);
-            Session::set('nextPage', $nextPage);
+                // set the page in the session
+                Session::set('page', $page);
+                Session::set('nextPage', $nextPage);
+            }
 
         // third questions
-        } else if (Input::has('q7') && Input::has('q8') && Input::has('q9')) {
+        } else if ($page == 3 && Input::has('s') || Input::has('q7') && Input::has('q8') && Input::has('q9')) {
 
             $input = Input::all();
 
             /////////////////////////////////////////
 
-            $q7 = $input['q7'];
-            $q7IdxAr = array();
+            if(!isset($input['q7'])) {
 
-            foreach($q7Ar as $idx => $v) {
-                if($v == $q7) {
-                    $q7IdxAr[] = $idx;
+                $validationErrorAr["q7"] = "Please answer question 7";
+
+            } else {
+                $q7 = $input['q7'];
+                $q7IdxAr = array();
+
+                foreach($q7Ar as $idx => $v) {
+                    if($v == $q7) {
+                        $q7IdxAr[] = $idx;
+                    }
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 7, $questionsAr[7], $q7, implode(", ", $q7IdxAr));
+                $this->reports->doAnswer($report->id, 7, $questionsAr[7], $q7, implode(", ", $q7IdxAr));
+            }
 
             /////////////////////////////////////////
 
-            $q8 = $input['q8'];
-            $q8IdxAr = array();
 
-            foreach($q8Ar as $idx => $v) {
-                if($v == $q8) {
-                    $q8IdxAr[] = $idx;
+            if(!isset($input['q8'])) {
+
+                $validationErrorAr["q8"] = "Please answer question 8";
+
+            } else {
+                $q8 = $input['q8'];
+                if($q8 != "Never") {
+
+                    $q8IdxAr = array();
+
+                    foreach($q8Ar as $idx => $v) {
+                        if($v == $q8) {
+                            $q8IdxAr[] = $idx;
+                        }
+                    }
+                } else {
+                    $q8IdxAr = array(3);
+                    $q8 = $input['q8_why'];
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 8, $questionsAr[8], $q8, implode(", ", $q8IdxAr));
+                $this->reports->doAnswer($report->id, 8, $questionsAr[8], $q8, implode(", ", $q8IdxAr));
+            }
 
             /////////////////////////////////////////
+            if(!isset($input['q9'])) {
 
-            $q9 = $input['q9'];
-            $q9IdxAr = array();
+                $validationErrorAr["q9"] = "Please answer question 9";
 
-            foreach($q9Ar as $idx => $v) {
-                if($v == $q9) {
-                    $q9IdxAr[] = $idx;
+            } else {
+                $q9 = $input['q9'];
+                if($q9 != "Never") {
+
+                    $q9IdxAr = array();
+
+                    foreach($q9Ar as $idx => $v) {
+                        if($v == $q9) {
+                            $q9IdxAr[] = $idx;
+                        }
+                    }
+                } else {
+                    $q9IdxAr = array(3);
+                    $q9 = $input['q9_why'];
                 }
+
+                $this->reports->doAnswer($report->id, 9, $questionsAr[9], $q9, implode(", ", $q9IdxAr));
             }
 
-            $this->reports->doAnswer($report->id, 9, $questionsAr[9], $q9, implode(", ", $q9IdxAr));
+            // if theres not validation errors then proceed
+            if(empty($validationErrorAr)) {
 
-            // bump the next page
-            $page = 4;
-            $nextPage = 5;
+                // bump the next page
+                $page = 4;
+                $nextPage = 5;
 
-            $report->bumpStep();
-            $report->save();
+                $report->bumpStep();
+                $report->save();
 
-            // set the page in the session
-            Session::set('page', $page);
-            Session::set('nextPage', $nextPage);
+                // set the page in the session
+                Session::set('page', $page);
+                Session::set('nextPage', $nextPage);
+            }
 
         // fourth questions
-        } else if (Input::has('q10') && Input::has('q11') && Input::has('q12')) {
+        } else if ($page == 4 && Input::has('s') || Input::has('q10') && Input::has('q11') && Input::has('q12')) {
 
             $input = Input::all();
 
             /////////////////////////////////////////
 
-            $q10 = $input['q10'];
-            $q10IdxAr = array();
+            if(!isset($input['q10'])) {
 
-            foreach($q10IdxAr as $idx => $v) {
-                if($v == $q10) {
-                    $q10IdxAr[] = $idx;
+                $validationErrorAr["q10"] = "Please answer question 10";
+
+            } else {
+
+                $q10 = $input['q10'];
+                $q10IdxAr = array();
+
+                foreach($q10IdxAr as $idx => $v) {
+                    if($v == $q10) {
+                        $q10IdxAr[] = $idx;
+                    }
                 }
+
+                $this->reports->doAnswer($report->id, 10, $questionsAr[10], $q10, implode(", ", $q10IdxAr));
+
             }
 
-            $this->reports->doAnswer($report->id, 10, $questionsAr[10], $q10, implode(", ", $q10IdxAr));
-
             /////////////////////////////////////////
 
-            $q11 = $input['q11'];
-            $this->reports->doAnswer($report->id, 11, $questionsAr[11], $q11, 0);
+            if(empty($input['q11'])) {
+                $validationErrorAr["q11"] = "Please answer question 11";
+            } else {
+                $q11 = $input['q11'];
+                $this->reports->doAnswer($report->id, 11, $questionsAr[11], $q11, 0);
+            }
 
             /////////////////////////////////////////
+            if(empty($input['q12'])) {
+                $validationErrorAr["q12"] = "Please answer question 12";
+            } else {
+                $q12 = $input['q12'];
+                $this->reports->doAnswer($report->id, 12, $questionsAr[12], $q12, 0);
+            }
 
-            $q12 = $input['q12'];
-            $this->reports->doAnswer($report->id, 12, $questionsAr[12], $q12, 0);
+            if(empty($validationErrorAr)) {
 
-            // bump the next page
-            $page = 5;
-            $nextPage = 6;
+                // bump the next page
+                $page = 5;
+                $nextPage = 6;
 
-            $report->bumpStep();
-            $report->save();
+                $report->step = $nextPage;
+                $report->save();
 
-            // set the page in the session
-            Session::set('page', $page);
-            Session::set('nextPage', $nextPage);
+                // set the page in the session
+                Session::set('page', $page);
+                Session::set('nextPage', $nextPage);
+            }
 
         // fifth questions
-        } else if (Input::has('q13') && Input::has('q14')) {
+        } else if ($page == 5 && Input::has('s') || Input::has('q13') && Input::has('q14')) {
 
             $input = Input::all();
 
             /////////////////////////////////////////
+            if(empty($input['q13'])) {
 
-            $q13 = $input['q13'];
-            $q13IdxAr = array();
+                $validationErrorAr["q13"] = "Please answer question 13";
 
-            foreach($q13Ar as $idx => $v) {
-                foreach($q13 as $q13a) {
-                    if($v == $q13a) {
-                        $q13IdxAr[] = $idx;
+            } else {
+
+                $q13 = $input['q13'];
+                $q13IdxAr = array();
+
+                foreach($q13Ar as $idx => $v) {
+                    foreach($q13 as $q13a) {
+                        if($v == $q13a) {
+                            $q13IdxAr[] = $idx;
+                        }
                     }
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 13, $questionsAr[13], implode(", ", $q13), implode(", ", $q13IdxAr));
+                $this->reports->doAnswer($report->id, 13, $questionsAr[13], implode(", ", $q13), implode(", ", $q13IdxAr));
+            }
 
             /////////////////////////////////////////
 
-            $q14 = $input['q14'];
-            $q14IdxAr = array();
+            if(empty($input['q14'])) {
 
-            foreach($q14Ar as $idx => $v) {
-                foreach($q14 as $q14a) {
-                    if($v == $q14a) {
-                        $q14IdxAr[] = $idx;
+                $validationErrorAr["q14"] = "Please answer question 14";
+
+            } else {
+                $q14 = $input['q14'];
+                $q14IdxAr = array();
+
+                foreach($q14Ar as $idx => $v) {
+                    foreach($q14 as $q14a) {
+                        if($v == $q14a) {
+                            $q14IdxAr[] = $idx;
+                        }
                     }
                 }
+
+                $this->reports->doAnswer($report->id, 14, $questionsAr[14], implode(", ", $q14), implode(", ", $q14IdxAr));
             }
 
-            $this->reports->doAnswer($report->id, 14, $questionsAr[14], implode(", ", $q14), implode(", ", $q14IdxAr));
+            if(empty($validationErrorAr)) {
 
-            // bump the next page
-            $page = 6;
-            $nextPage = 7;
+                // bump the next page
+                $page = 6;
+                $nextPage = 7;
 
-            $report->bumpStep();
-            $report->save();
+                $report->step = $nextPage;
+                $report->save();
 
-            // set the page in the session
-            Session::set('page', $page);
-            Session::set('nextPage', $nextPage);
+                // set the page in the session
+                Session::set('page', $page);
+                Session::set('nextPage', $nextPage);
+            }
 
         // sixth questions
-        } else if (Input::has('q15') && Input::has('q16')) {
+        } else if ($page == 6 && Input::has('s') || Input::has('q15') && Input::has('q16')) {
 
             $input = Input::all();
 
             /////////////////////////////////////////
 
-            $q15 = $input['q15'];
-            $q15IdxAr = array();
+            if(empty($input['q15'])) {
 
-            foreach($q15Ar as $idx => $v) {
-                if($v == $q15) {
-                    $q15IdxAr[] = $idx;
+                $validationErrorAr["q15"] = "Please answer question 15";
+
+            } else {
+                $q15 = $input['q15'];
+                $q15IdxAr = array();
+
+                foreach($q15Ar as $idx => $v) {
+                    if($v == $q15) {
+                        $q15IdxAr[] = $idx;
+                    }
                 }
-            }
 
-            $this->reports->doAnswer($report->id, 15, $questionsAr[15], $q15, implode(", ", $q15IdxAr));
+                $this->reports->doAnswer($report->id, 15, $questionsAr[15], $q15, implode(", ", $q15IdxAr));
+            }
 
             /////////////////////////////////////////
 
-            $q16 = $input['q16'];
-            $q16IdxAr = array();
+            if(empty($input['q16'])) {
 
-            foreach($q16Ar as $idx => $v) {
-                if($v == $q16) {
-                    $q16IdxAr[] = $idx;
+                $validationErrorAr["q16"] = "Please answer question 16";
+
+            } else {
+                $q16 = $input['q16'];
+                $q16IdxAr = array();
+
+                foreach($q16Ar as $idx => $v) {
+                    if($v == $q16) {
+                        $q16IdxAr[] = $idx;
+                    }
                 }
+
+                $this->reports->doAnswer($report->id, 16, $questionsAr[16], $q16, implode(", ", $q16IdxAr));
             }
 
-            $this->reports->doAnswer($report->id, 16, $questionsAr[16], $q16, implode(", ", $q16IdxAr));
+            if(empty($validationErrorAr)) {
 
-            $report->bumpStep();
-            $report->save();
+                $report->step = 'display_question_page';
+                $report->save();
 
-            // set the page in the session
+                // set the page in the session
+                Session::set('display_question_page', true);
+
+                $this->layout->content = View::make('view_products');
+            }
+        }
+
+        // set the page in the session
+        if(Session::has('display_question_page') && Session::get('display_question_page') == true && Input::has('c'))  {
             Session::set('completed_questions', true);
-
         }
 
         // if the user has completed the questions then show the products.
@@ -463,13 +603,9 @@ class HomeController extends BaseController {
 
             if(Session::has('current_product_id')) {
                 $this->product = $this->products->find(Session::get('current_product_id'));
-//                var_dump(Session::get('current_product_id'));
-//                print_r($this->product);
-//                die;
             } else {
                 $this->product = $this->products->getNext();
             }
-
 
             $qAr[1] = "1) What do you think about this?";
             $qAr[2] = "2) Please choose all that apply";
@@ -477,10 +613,8 @@ class HomeController extends BaseController {
             $qAr[4] = "4) Do you have feedback on this product?";
 
             $a1Ar[1] = "I don't really like this :(";
-            $a1Ar[2] = "It's OK :)";
-            $a1Ar[3] = "It's great :D";
-
-
+            $a1Ar[2] = "It's OK";
+            $a1Ar[3] = "It's great :)";
 
             $a2Ar[1] = "I wouldn't buy this";
             $a2Ar[2] = "I would buy this for a friend";
@@ -488,8 +622,6 @@ class HomeController extends BaseController {
             $a2Ar[4] = "I'd quite like this for myself";
             $a2Ar[5] = "I'd like to buy this for someone right now";
             $a2Ar[6] = "I've seen this product before";
-            $a2Ar[7] = "This is the first time I've seen this product";
-
 
             if (Input::has('id')) {
 
@@ -510,8 +642,8 @@ class HomeController extends BaseController {
                         }
                     }
 
-                    $q2 = $input['q2'];
 
+                    $q2 = (!empty($input['q2'])) ? $input['q2'] : array();
                     $q2idxAr = array();
 
                     foreach($q2 as $idx => $v) {
@@ -523,6 +655,7 @@ class HomeController extends BaseController {
                     }
 
                     $q3 = ($input['q3']) ? $input['q3'] : "";
+
                     $q4 = ($input['q4']) ? $input['q4'] : "";
 
                     $pa = $this->reports->doProductAnswer(
@@ -537,10 +670,13 @@ class HomeController extends BaseController {
                     if(is_object($this->product)) {
 
                         Session::set('current_product_id', $this->product->id);
+                        $report->step = "Product ID: ".$this->product->id;
+                        $report->save();
 
                     } else {
                         // set the page in the session
                         Session::set('completed_product_questions', true);
+                        return Redirect::to('/thanks');
                     }
 
                 } else {
@@ -551,33 +687,40 @@ class HomeController extends BaseController {
             $this->product->incrementDisplayCount();
             $this->layout->content = View::make(
                 'products', array('product'     => $this->product,
-                                  'questionsAr' => $questionsAr)
+                                  'questionsAr' => $questionsAr,
+                                  'validationErrorAr' => $validationErrorAr)
             );
 
 
         } else {
 
-            $this->layout->content = View::make(
-                'questions' . $page,
-                array(
-                     'questionsAr' => $questionsAr,
-                     'q1Ar'        => $q1Ar,
-                     'q2Ar'        => $q2Ar,
-                     'q3Ar'        => $q3Ar,
-                     'q4Ar'        => $q4Ar,
-                     'q5Ar'        => $q5Ar,
-                     'q6Ar'        => $q6Ar,
-                     'q7Ar'        => $q7Ar,
-                     'q8Ar'        => $q8Ar,
-                     'q9Ar'        => $q9Ar,
+            if( Session::has('display_question_page') && Session::get('display_question_page') == true) {
+                //
+                $this->layout->content = View::make('view_products');
+            } else {
+                $this->layout->content = View::make(
+                    'questions' . $page,
+                    array(
+                         'validationErrorAr' => $validationErrorAr,
+                         'questionsAr' => $questionsAr,
+                         'q1Ar'        => $q1Ar,
+                         'q2Ar'        => $q2Ar,
+                         'q3Ar'        => $q3Ar,
+                         'q4Ar'        => $q4Ar,
+                         'q5Ar'        => $q5Ar,
+                         'q6Ar'        => $q6Ar,
+                         'q7Ar'        => $q7Ar,
+                         'q8Ar'        => $q8Ar,
+                         'q9Ar'        => $q9Ar,
 
-                     'q10Ar'       => $q10Ar,
-                     'q13Ar'       => $q13Ar,
-                     'q14Ar'       => $q14Ar,
-                     'q15Ar'       => $q15Ar,
-                     'q16Ar'       => $q16Ar,
-                )
-            );
+                         'q10Ar'       => $q10Ar,
+                         'q13Ar'       => $q13Ar,
+                         'q14Ar'       => $q14Ar,
+                         'q15Ar'       => $q15Ar,
+                         'q16Ar'       => $q16Ar,
+                    )
+                );
+            }
         }
     }
 
