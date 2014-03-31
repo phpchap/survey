@@ -42,6 +42,9 @@ class CreateProductChooserReportTable extends Migration {
                 $table->text('session_id');
                 $table->text('step');
                 $table->text('ip');
+                $table->text('product_group_id');
+                $table->text('opt_in');
+                $table->text('email');
                 $table->timestamps();
             });
 

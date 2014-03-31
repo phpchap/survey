@@ -12,12 +12,27 @@ class EloquentProductRepository implements ProductRepository {
     
     public function getNext($id = ""){
 
-        return ($id == "") ? Product::all()->first() : Product::where('id', '>' , $id)->first();
+        $p = Product::select("*");
+        $g = Session::get('product_group_id');
+        $p->where("group_id", "=", $g);
 
+        if($id == "") {
+            return $p->first();
+        } else {
+            return $p->where('id', '>' , $id)->first();
+        }
     }
         
     public function getPrevious($id = ""){
-        return ($id == "") ? Product::all()->first() : Product::where('id', '<' , $id)->first();        
+
+        $p = Product::select("*");
+        $p->where("group_id", "=", Session::get('group_product_id'));
+
+        if($id == "") {
+            return $p->first();
+        } else {
+            return $p->where('id', '<' , $id)->first();
+        }
     }    
     
     public function updateDisplayCount($id){

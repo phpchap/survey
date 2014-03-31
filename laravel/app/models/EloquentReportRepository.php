@@ -15,11 +15,45 @@ class EloquentReportRepository
 
     public function fetchReport($sessionId)
     {
-
         $filter = "session_id = '" . $sessionId . "'";
         $report = Report::whereRaw($filter)->first();
 
-        return (is_object($report)) ? $report : new Report();
+        if(is_object($report)) {
+
+            $productGroupId = $report->product_group_id;
+            Session::set('product_group_id', $productGroupId);
+
+            return $report;
+        } else {
+
+            $report = new Report;
+            $results = DB::select( DB::raw("SELECT product_group_id FROM reports ORDER BY id DESC LIMIT 1") );
+
+            if(empty($results) && !isset($results[0]->product_group_id)) {
+                $productGroupId = 1;
+            } else {
+
+                $ar[1]=2;
+                $ar[2]=3;
+                $ar[3]=4;
+                $ar[4]=1;
+
+                $productGroupId = $ar[$results[0]->product_group_id];
+            }
+
+            $report->product_group_id = $productGroupId;
+            $report->save();
+        }
+
+        if($report->session_id == null) {
+            $report->session_id = session_id();
+            $report->ip = $_SERVER['REMOTE_ADDR'];
+            $report->save();
+        }
+
+        Session::set('product_group_id', $report->product_group_id);
+
+        return $report;
     }
 
     /**

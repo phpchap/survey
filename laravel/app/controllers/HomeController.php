@@ -11,8 +11,273 @@ class HomeController extends BaseController {
         $this->reports = $reports;
     }
 
+    public function initQandA()
+    {
+        $this->questionsAr[1]="1. How old are you?";
+        $this->questionsAr[2]="2. Please state your gender";
+        $this->questionsAr[3]="3. How easy is it for you to shop for a gift during the week?";
+        $this->questionsAr[4]="4. How easy is it for you to shop for wrapping paper & cards during the week? Tick all that apply";
+        $this->questionsAr[5]="5. Who do you buy gifts for? Please tick all that apply";
+        $this->questionsAr[6]="6. How often do you buy gifts online?";
+        $this->questionsAr[7]="7. How often do you treat yourself to a present online?";
+        $this->questionsAr[8]="8. Do you ever purchased wrapping paper online?";
+        $this->questionsAr[9]="9. Do you ever purchase greetings cards online?";
+        $this->questionsAr[10]="10. Do you usually buy wrapping paper & cards at the same time as the corresponding gift?";
+        $this->questionsAr[11]="11. What would make you more inclined to buy gifts online?";
+        $this->questionsAr[12]="12. What would make you more inclined to buy greetings cards / wrapping paper online?";
+        $this->questionsAr[13]="13. Are you likely to purchase any of the following in the next 12 months?";
+        $this->questionsAr[14]="14. Which of the following types of gifts do you buy?";
+        $this->questionsAr[15]="15. How often do you buy gift tags, bows or ribbons for your presents?";
+        $this->questionsAr[16]="16. Which of the following best describes your approach to present wrapping?";
+
+
+        // answers for q1
+        $this->q1Ar[] = "Under 18";
+        $this->q1Ar[] = "18 - 24";
+        $this->q1Ar[] = "25 - 33";
+        $this->q1Ar[] = "34 - 44";
+        $this->q1Ar[] = "45 - 54";
+        $this->q1Ar[] = "55 - 65";
+        $this->q1Ar[] = "Over 65";
+
+        // answers for q2
+        $this->q2Ar[] = "Male";
+        $this->q2Ar[] = "Female";
+
+        // answers for q3
+        $this->q3Ar[] = "Very easy, as I live/work near shops";
+        $this->q3Ar[] = "Very easy, I purchase online";
+        $this->q3Ar[] = "Not very easy, as I work long hours";
+        $this->q3Ar[] = "Not very easy, as I don’t live/work near shops";
+        $this->q3Ar[] = "Not very easy, as the shops near me aren’t very good";
+        $this->q3Ar[] = "I prefer to purchase gifts at the weekend";
+
+        // answers for q4
+        $this->q4Ar[] = "Very easy, as I live/work near card shops";
+        $this->q4Ar[] = "Very easy, I purchase online";
+        $this->q4Ar[] = "Not very easy, as I work long hours";
+        $this->q4Ar[] = "Not very easy, as I don’t live/work near card shops";
+        $this->q4Ar[] = "Not very easy, as the card shops near me aren’t very good";
+        $this->q4Ar[] = "I prefer to purchase wrapping paper/cards at the weekend";
+
+        // answers for q5
+        $this->q5Ar[] = "Friends";
+        $this->q5Ar[] = "Family";
+        $this->q5Ar[] = "Partners";
+        $this->q5Ar[] = "Myself";
+        $this->q5Ar[] = "No one";
+
+        // answers for q6
+        $this->q6Ar[] = "Never";
+        $this->q6Ar[] = "Once a year";
+        $this->q6Ar[] = "Every few months";
+        $this->q6Ar[] = "Every month";
+        $this->q6Ar[] = "Every week";
+
+        // answer for q7
+        $this->q7Ar[] = "Never";
+        $this->q7Ar[] = "Once a year";
+        $this->q7Ar[] = "Every few months";
+        $this->q7Ar[] = "Every month";
+        $this->q7Ar[] = "Every week";
+
+        // answer for q8
+        $this->q8Ar[] = "Never";
+        $this->q8Ar[] = "Occasionally";
+        $this->q8Ar[] = "Often";
+
+        // answer for q9
+        $this->q9Ar[] = "Never";
+        $this->q9Ar[] = "Occasionally";
+        $this->q9Ar[] = "Often";
+
+        // answer for q10
+        $this->q10Ar[] = "Yes";
+        $this->q10Ar[] = "No";
+
+        // answer for q13
+        $this->q13Ar[] = "Birthday gifts";
+        $this->q13Ar[] = "Christmas gifts";
+        $this->q13Ar[] = "New Baby gifts";
+        $this->q13Ar[] = "Wedding gifts";
+        $this->q13Ar[] = "Valentines gifts";
+        $this->q13Ar[] = "New home gifts";
+        $this->q13Ar[] = "Anniversary gifts";
+        $this->q13Ar[] = "Thank you gifts";
+        $this->q13Ar[] = "Halloween gift";
+        $this->q13Ar[] = "Not planning on buying any gifts";
+
+        // answer for q14
+        $this->q14Ar[] = "Books";
+        $this->q14Ar[] = "Jewellery";
+        $this->q14Ar[] = "Candles";
+        $this->q14Ar[] = "Toiletries";
+        $this->q14Ar[] = "Purses / Tote bags";
+        $this->q14Ar[] = "Home accessories";
+        $this->q14Ar[] = "Garden accessories";
+        $this->q14Ar[] = "Stationary";
+        $this->q14Ar[] = "Toys and games";
+        $this->q14Ar[] = "Art prints";
+        $this->q14Ar[] = "None of the above";
+
+        // answer for q15
+        $this->q15Ar[] = "Every time that I buy wrapping paper";
+        $this->q15Ar[] = "Very often";
+        $this->q15Ar[] = "Not very often";
+        $this->q15Ar[] = "Never";
+
+        // answers for q16
+        $this->q16Ar[] = "I like to spend time selecting wrapping paper, accessories & wrapping my presents";
+        $this->q16Ar[] = "I tend to use whatever wrapping paper I have already";
+        $this->q16Ar[] = "I prefer not to wrap presents, as I can’t be bothered";
+        $this->q16Ar[] = "I prefer not to wrap presents, as I don’t have the time";
+        $this->q16Ar[] = "I prefer gift bags";
+        $this->q16Ar[] = "I wish I was better at wrapping presents, but I’m not sure how to do it properly";
+
+        $this->qAr[1] = "1) What do you think about this?";
+        $this->qAr[2] = "2) Please choose all that apply";
+        $this->qAr[3] = "3) I would buy this for";
+        $this->qAr[4] = "4) Do you have feedback on this product?";
+
+        $this->a1Ar[1] = "I don't really like this :(";
+        $this->a1Ar[2] = "It's OK";
+        $this->a1Ar[3] = "It's great :)";
+
+        $this->a2Ar[1] = "I wouldn't buy this";
+        $this->a2Ar[2] = "I would buy this for a friend";
+        $this->a2Ar[3] = "I would buy this someone in my family";
+        $this->a2Ar[4] = "I'd quite like this for myself";
+        $this->a2Ar[5] = "I'd like to buy this for someone right now";
+        $this->a2Ar[6] = "I've seen this product before";
+
+    }
+
+    public function exportAnswers()
+    {
+        $this->initQandA();
+        $this->layout = "";
+
+        $sizeAnswers = array();
+
+        $sizeAnswers[1] = count($this->q1Ar);
+        $sizeAnswers[2] = count($this->q2Ar);
+        $sizeAnswers[3] = count($this->q3Ar);
+        $sizeAnswers[4] = count($this->q4Ar);
+        $sizeAnswers[5] = count($this->q5Ar);
+        $sizeAnswers[6] = count($this->q6Ar);
+        $sizeAnswers[7] = count($this->q7Ar);
+        $sizeAnswers[8] = count($this->q8Ar);
+        $sizeAnswers[9] = count($this->q9Ar);
+        $sizeAnswers[10] = count($this->q10Ar);
+        $sizeAnswers[11] = 1;
+        $sizeAnswers[12] = 1;
+        $sizeAnswers[13] = count($this->q13Ar);
+        $sizeAnswers[14] = count($this->q14Ar);
+        $sizeAnswers[15] = count($this->q15Ar);
+        $sizeAnswers[16] = count($this->q16Ar);
+
+        $answersAr[1] = $this->q1Ar;
+        $answersAr[2] = $this->q2Ar;
+        $answersAr[3] = $this->q3Ar;
+        $answersAr[4] = $this->q4Ar;
+        $answersAr[5] = $this->q5Ar;
+        $answersAr[6] = $this->q6Ar;
+        $answersAr[7] = $this->q7Ar;
+        $answersAr[8] = $this->q8Ar;
+        $answersAr[9] = $this->q9Ar;
+        $answersAr[10] = $this->q10Ar;
+        $answersAr[11] = array("Free Text Field");
+        $answersAr[12] = array("Free Text Field");
+        $answersAr[13] = $this->q13Ar;
+        $answersAr[14] = $this->q14Ar;
+        $answersAr[15] = $this->q15Ar;
+        $answersAr[16] = $this->q16Ar;
+
+        $allProducts = DB::select( DB::raw("select id,group_id,title from products order by id asc") );
+
+        // product position array
+        $productPosition = array();
+        $cnt = 0;
+        foreach($allProducts as $p => $i) {
+            $productPosition[$i->id] = $cnt;
+            $productArray[$i->id] = $i;
+            $cnt++;
+        }
+
+//        $results = DB::select( DB::raw("SELECT * FROM some_table WHERE some_col = '$someVariable'") );
+//        print_r($productPosition);
+//die;
+
+        $view = View::make('exportAnswers',
+            array(
+            'productPosition' => $productPosition,
+            'productArray' => $productArray,
+            'productQuestionAr' => $this->qAr,
+            'allProducts' => $allProducts,
+            'questionsAr' => $this->questionsAr,
+            'sizeAnswers' => $sizeAnswers,
+            'answersAr' => $answersAr,
+            'q1Ar' => $this->q1Ar,
+            'q2Ar' => $this->q2Ar,
+            'q3Ar' => $this->q3Ar,
+            'q4Ar' => $this->q4Ar,
+            'q5Ar' => $this->q5Ar,
+            'q6Ar' => $this->q6Ar,
+            'q7Ar' => $this->q7Ar,
+            'q8Ar' => $this->q8Ar,
+            'q9Ar' => $this->q9Ar,
+            'q10Ar' => $this->q10Ar,
+            'q13Ar' => $this->q13Ar,
+            'q14Ar' => $this->q14Ar,
+            'q15Ar' => $this->q15Ar,
+            'q16Ar' => $this->q16Ar
+            )
+        );
+
+        if(!empty($_GET['e']) && $_GET['e'] = 'x') {
+
+            $html = str_get_html($view);
+
+
+            header('Content-type: application/ms-excel');
+            header('Content-Disposition: attachment; filename=report'.time().'.csv');
+
+            $fp = fopen("php://output", "w");
+
+            foreach($html->find('tr') as $element)
+            {
+                $td = array();
+                foreach( $element->find('th') as $row)
+                {
+                    $td [] = $row->plaintext;
+                }
+                fputcsv($fp, $td);
+
+                $td = array();
+                foreach( $element->find('td') as $row)
+                {
+                    $td [] = $row->plaintext;
+                }
+                fputcsv($fp, $td);
+            }
+
+
+            fclose($fp);
+
+        } else {
+            echo $view;
+
+        }
+    }
+
     public function survey()
     {
+        if(!empty($_GET['r']) && $_GET['r']="x") {
+            session_destroy();
+            die;
+        }
+
+        $this->initQandA();
 
         // have we finished?
         if( Session::has('completed_product_questions') && Session::get('completed_product_questions') == true &&
@@ -23,28 +288,6 @@ class HomeController extends BaseController {
 
         $report = $this->reports->fetchReport(session_id());
 
-        if($report->session_id == null) {
-            $report->session_id = session_id();
-            $report->ip = $_SERVER['REMOTE_ADDR'];
-            $report->save();
-        }
-
-        $questionsAr[1]="1. How old are you?";
-        $questionsAr[2]="2. Please state your gender";
-        $questionsAr[3]="3. How easy is it for you to shop for a gift during the week?";
-        $questionsAr[4]="4. How easy is it for you to shop for wrapping paper & cards during the week? Tick all that apply";
-        $questionsAr[5]="5. Who do you buy gifts for? Please tick all that apply";
-        $questionsAr[6]="6. How often do you buy gifts online?";
-        $questionsAr[7]="7. How often do you treat yourself to a present online?";
-        $questionsAr[8]="8. Do you ever purchased wrapping paper online?";
-        $questionsAr[9]="9. Do you ever purchase greetings cards online?";
-        $questionsAr[10]="10. Do you usually buy wrapping paper & cards at the same time as the corresponding gift?";
-        $questionsAr[11]="11. What would make you more inclined to buy gifts online?";
-        $questionsAr[12]="12. What would make you more inclined to buy greetings cards / wrapping paper online?";
-        $questionsAr[13]="13. Are you likely to purchase any of the following in the next 12 months?";
-        $questionsAr[14]="14. Which of the following types of gifts do you buy?";
-        $questionsAr[15]="15. How often do you buy gift tags, bows or ribbons for your presents?";
-        $questionsAr[16]="16. Which of the following best describes your approach to present wrapping?";
 
         // do we pages
         if (Session::has('page') && Session::has('nextPage'))
@@ -61,108 +304,6 @@ class HomeController extends BaseController {
 
         }
 
-        // answers for q1
-        $q1Ar[] = "Under 18";
-        $q1Ar[] = "18 - 24";
-        $q1Ar[] = "25 - 33";
-        $q1Ar[] = "34 - 44";
-        $q1Ar[] = "45 - 54";
-        $q1Ar[] = "55 - 65";
-        $q1Ar[] = "Over 65";
-
-        // answers for q2
-        $q2Ar[] = "Male";
-        $q2Ar[] = "Female";
-
-        // answers for q3
-        $q3Ar[] = "Very easy, as I live/work near shops";
-        $q3Ar[] = "Very easy, I purchase online";
-        $q3Ar[] = "Not very easy, as I work long hours";
-        $q3Ar[] = "Not very easy, as I don’t live/work near shops";
-        $q3Ar[] = "Not very easy, as the shops near me aren’t very good";
-        $q3Ar[] = "I prefer to purchase gifts at the weekend";
-
-        // answers for q4
-        $q4Ar[] = "Very easy, as I live/work near card shops";
-        $q4Ar[] = "Very easy, I purchase online";
-        $q4Ar[] = "Not very easy, as I work long hours";
-        $q4Ar[] = "Not very easy, as I don’t live/work near card shops";
-        $q4Ar[] = "Not very easy, as the card shops near me aren’t very good";
-        $q4Ar[] = "I prefer to purchase wrapping paper/cards at the weekend";
-
-        // answers for q5
-        $q5Ar[] = "Friends";
-        $q5Ar[] = "Family";
-        $q5Ar[] = "Partners";
-        $q5Ar[] = "Myself";
-        $q5Ar[] = "No one";
-
-        // answers for q6
-        $q6Ar[] = "Never";
-        $q6Ar[] = "Once a year";
-        $q6Ar[] = "Every few months";
-        $q6Ar[] = "Every month";
-        $q6Ar[] = "Every week";
-
-        // answer for q7
-        $q7Ar[] = "Never";
-        $q7Ar[] = "Once a year";
-        $q7Ar[] = "Every few months";
-        $q7Ar[] = "Every month";
-        $q7Ar[] = "Every week";
-
-        // answer for q8
-        $q8Ar[] = "Never";
-        $q8Ar[] = "Occasionally";
-        $q8Ar[] = "Often";
-
-        // answer for q9
-        $q9Ar[] = "Never";
-        $q9Ar[] = "Occasionally";
-        $q9Ar[] = "Often";
-
-        // answer for q10
-        $q10Ar[] = "Yes";
-        $q10Ar[] = "No";
-
-        // answer for q13
-        $q13Ar[] = "Birthday gifts";
-        $q13Ar[] = "Christmas gifts";
-        $q13Ar[] = "New Baby gifts";
-        $q13Ar[] = "Wedding gifts";
-        $q13Ar[] = "Valentines gifts";
-        $q13Ar[] = "New home gifts";
-        $q13Ar[] = "Anniversary gifts";
-        $q13Ar[] = "Thank you gifts";
-        $q13Ar[] = "Halloween gift";
-        $q13Ar[] = "Not planning on buying any gifts";
-
-        // answer for q14
-        $q14Ar[] = "Books";
-        $q14Ar[] = "Jewellery";
-        $q14Ar[] = "Candles";
-        $q14Ar[] = "Toiletries";
-        $q14Ar[] = "Purses / Tote bags";
-        $q14Ar[] = "Home accessories";
-        $q14Ar[] = "Garden accessories";
-        $q14Ar[] = "Stationary";
-        $q14Ar[] = "Toys and games";
-        $q14Ar[] = "Art prints";
-        $q14Ar[] = "None of the above";
-
-        // answer for q15
-        $q15Ar[] = "Every time that I buy wrapping paper";
-        $q15Ar[] = "Very often";
-        $q15Ar[] = "Not very often";
-        $q15Ar[] = "Never";
-
-        // answers for q16
-        $q16Ar[] = "I like to spend time selecting wrapping paper, accessories & wrapping my presents";
-        $q16Ar[] = "I tend to use whatever wrapping paper I have already";
-        $q16Ar[] = "I prefer not to wrap presents, as I can’t be bothered";
-        $q16Ar[] = "I prefer not to wrap presents, as I don’t have the time";
-        $q16Ar[] = "I prefer gift bags";
-        $q16Ar[] = "I wish I was better at wrapping presents, but I’m not sure how to do it properly";
 
         $validationErrorAr = array();
 
@@ -182,13 +323,13 @@ class HomeController extends BaseController {
                 $q1 = $input['q1'];
                 $q1IdxAr = array();
 
-                foreach($q1Ar as $idx => $v) {
+                foreach($this->q1Ar as $idx => $v) {
                     if($v == $q1) {
                         $q1IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 1, $questionsAr[1], $q1, implode(", ", $q1IdxAr));
+                $this->reports->doAnswer($report->id, 1, $this->questionsAr[1], $q1, implode(", ", $q1IdxAr));
 
             }
 
@@ -201,13 +342,13 @@ class HomeController extends BaseController {
                 $q2 = $input['q2'];
                 $q2IdxAr = array();
 
-                foreach($q2Ar as $idx => $v) {
+                foreach($this->q2Ar as $idx => $v) {
                     if($v == $q2) {
                         $q2IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 2, $questionsAr[2], $q2, implode(", ", $q2IdxAr));
+                $this->reports->doAnswer($report->id, 2, $this->questionsAr[2], $q2, implode(", ", $q2IdxAr));
             }
 
             /////////////////////////////////////////
@@ -219,7 +360,7 @@ class HomeController extends BaseController {
                 $q3 = $input['q3'];
                 $q3IdxAr = array();
 
-                foreach($q3Ar as $idx => $v) {
+                foreach($this->q3Ar as $idx => $v) {
                     foreach($q3 as $q3a) {
                         if($v == $q3a) {
                             $q3IdxAr[] = $idx;
@@ -227,7 +368,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 3, $questionsAr[3], implode(", ", $q3), implode(", ", $q3IdxAr));
+                $this->reports->doAnswer($report->id, 3, $this->questionsAr[3], implode(", ", $q3), implode(", ", $q3IdxAr));
             }
 
             // if we don't have any validation errors then proceed
@@ -260,7 +401,7 @@ class HomeController extends BaseController {
                 $q4 = $input['q4'];
                 $q4IdxAr = array();
 
-                foreach($q4Ar as $idx => $v) {
+                foreach($this->q4Ar as $idx => $v) {
                     foreach($q4 as $q4a) {
                         if($v == $q4a) {
                             $q4IdxAr[] = $idx;
@@ -268,7 +409,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 4, $questionsAr[4], implode(", ", $q4), implode(", ", $q4IdxAr));
+                $this->reports->doAnswer($report->id, 4, $this->questionsAr[4], implode(", ", $q4), implode(", ", $q4IdxAr));
 
             }
 
@@ -283,7 +424,7 @@ class HomeController extends BaseController {
                 $q5 = $input['q5'];
                 $q5IdxAr = array();
 
-                foreach($q5Ar as $idx => $v) {
+                foreach($this->q5Ar as $idx => $v) {
                     foreach($q5 as $q5a) {
                         if($v == $q5a) {
                             $q5IdxAr[] = $idx;
@@ -291,7 +432,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 5, $questionsAr[5], implode(", ", $q5), implode(", ", $q5IdxAr));
+                $this->reports->doAnswer($report->id, 5, $this->questionsAr[5], implode(", ", $q5), implode(", ", $q5IdxAr));
 
             }
 
@@ -306,13 +447,13 @@ class HomeController extends BaseController {
                 $q6 = $input['q6'];
                 $q6IdxAr = array();
 
-                foreach($q6Ar as $idx => $v) {
+                foreach($this->q6Ar as $idx => $v) {
                     if($v == $q6) {
                         $q6IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 6, $questionsAr[6], $q6, implode(", ", $q6IdxAr));
+                $this->reports->doAnswer($report->id, 6, $this->questionsAr[6], $q6, implode(", ", $q6IdxAr));
 
             }
 
@@ -346,13 +487,13 @@ class HomeController extends BaseController {
                 $q7 = $input['q7'];
                 $q7IdxAr = array();
 
-                foreach($q7Ar as $idx => $v) {
+                foreach($this->q7Ar as $idx => $v) {
                     if($v == $q7) {
                         $q7IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 7, $questionsAr[7], $q7, implode(", ", $q7IdxAr));
+                $this->reports->doAnswer($report->id, 7, $this->questionsAr[7], $q7, implode(", ", $q7IdxAr));
             }
 
             /////////////////////////////////////////
@@ -368,17 +509,17 @@ class HomeController extends BaseController {
 
                     $q8IdxAr = array();
 
-                    foreach($q8Ar as $idx => $v) {
+                    foreach($this->q8Ar as $idx => $v) {
                         if($v == $q8) {
                             $q8IdxAr[] = $idx;
                         }
                     }
                 } else {
-                    $q8IdxAr = array(3);
+                    $q8IdxAr = array(0);
                     $q8 = $input['q8_why'];
                 }
 
-                $this->reports->doAnswer($report->id, 8, $questionsAr[8], $q8, implode(", ", $q8IdxAr));
+                $this->reports->doAnswer($report->id, 8, $this->questionsAr[8], $q8, implode(", ", $q8IdxAr));
             }
 
             /////////////////////////////////////////
@@ -392,17 +533,17 @@ class HomeController extends BaseController {
 
                     $q9IdxAr = array();
 
-                    foreach($q9Ar as $idx => $v) {
+                    foreach($this->q9Ar as $idx => $v) {
                         if($v == $q9) {
                             $q9IdxAr[] = $idx;
                         }
                     }
                 } else {
-                    $q9IdxAr = array(3);
+                    $q9IdxAr = array(0);
                     $q9 = $input['q9_why'];
                 }
 
-                $this->reports->doAnswer($report->id, 9, $questionsAr[9], $q9, implode(", ", $q9IdxAr));
+                $this->reports->doAnswer($report->id, 9, $this->questionsAr[9], $q9, implode(", ", $q9IdxAr));
             }
 
             // if theres not validation errors then proceed
@@ -442,7 +583,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 10, $questionsAr[10], $q10, implode(", ", $q10IdxAr));
+                $this->reports->doAnswer($report->id, 10, $this->questionsAr[10], $q10, implode(", ", $q10IdxAr));
 
             }
 
@@ -452,7 +593,7 @@ class HomeController extends BaseController {
                 $validationErrorAr["q11"] = "Please answer question 11";
             } else {
                 $q11 = $input['q11'];
-                $this->reports->doAnswer($report->id, 11, $questionsAr[11], $q11, 0);
+                $this->reports->doAnswer($report->id, 11, $this->questionsAr[11], $q11, 0);
             }
 
             /////////////////////////////////////////
@@ -460,7 +601,7 @@ class HomeController extends BaseController {
                 $validationErrorAr["q12"] = "Please answer question 12";
             } else {
                 $q12 = $input['q12'];
-                $this->reports->doAnswer($report->id, 12, $questionsAr[12], $q12, 0);
+                $this->reports->doAnswer($report->id, 12, $this->questionsAr[12], $q12, 0);
             }
 
             if(empty($validationErrorAr)) {
@@ -492,7 +633,7 @@ class HomeController extends BaseController {
                 $q13 = $input['q13'];
                 $q13IdxAr = array();
 
-                foreach($q13Ar as $idx => $v) {
+                foreach($this->q13Ar as $idx => $v) {
                     foreach($q13 as $q13a) {
                         if($v == $q13a) {
                             $q13IdxAr[] = $idx;
@@ -500,7 +641,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 13, $questionsAr[13], implode(", ", $q13), implode(", ", $q13IdxAr));
+                $this->reports->doAnswer($report->id, 13, $this->questionsAr[13], implode(", ", $q13), implode(", ", $q13IdxAr));
             }
 
             /////////////////////////////////////////
@@ -513,7 +654,7 @@ class HomeController extends BaseController {
                 $q14 = $input['q14'];
                 $q14IdxAr = array();
 
-                foreach($q14Ar as $idx => $v) {
+                foreach($this->q14Ar as $idx => $v) {
                     foreach($q14 as $q14a) {
                         if($v == $q14a) {
                             $q14IdxAr[] = $idx;
@@ -521,7 +662,7 @@ class HomeController extends BaseController {
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 14, $questionsAr[14], implode(", ", $q14), implode(", ", $q14IdxAr));
+                $this->reports->doAnswer($report->id, 14, $this->questionsAr[14], implode(", ", $q14), implode(", ", $q14IdxAr));
             }
 
             if(empty($validationErrorAr)) {
@@ -553,13 +694,13 @@ class HomeController extends BaseController {
                 $q15 = $input['q15'];
                 $q15IdxAr = array();
 
-                foreach($q15Ar as $idx => $v) {
+                foreach($this->q15Ar as $idx => $v) {
                     if($v == $q15) {
                         $q15IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 15, $questionsAr[15], $q15, implode(", ", $q15IdxAr));
+                $this->reports->doAnswer($report->id, 15, $this->questionsAr[15], $q15, implode(", ", $q15IdxAr));
             }
 
             /////////////////////////////////////////
@@ -572,13 +713,13 @@ class HomeController extends BaseController {
                 $q16 = $input['q16'];
                 $q16IdxAr = array();
 
-                foreach($q16Ar as $idx => $v) {
+                foreach($this->q16Ar as $idx => $v) {
                     if($v == $q16) {
                         $q16IdxAr[] = $idx;
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 16, $questionsAr[16], $q16, implode(", ", $q16IdxAr));
+                $this->reports->doAnswer($report->id, 16, $this->questionsAr[16], $q16, implode(", ", $q16IdxAr));
             }
 
             if(empty($validationErrorAr)) {
@@ -607,22 +748,6 @@ class HomeController extends BaseController {
                 $this->product = $this->products->getNext();
             }
 
-            $qAr[1] = "1) What do you think about this?";
-            $qAr[2] = "2) Please choose all that apply";
-            $qAr[3] = "3) I would buy this for";
-            $qAr[4] = "4) Do you have feedback on this product?";
-
-            $a1Ar[1] = "I don't really like this :(";
-            $a1Ar[2] = "It's OK";
-            $a1Ar[3] = "It's great :)";
-
-            $a2Ar[1] = "I wouldn't buy this";
-            $a2Ar[2] = "I would buy this for a friend";
-            $a2Ar[3] = "I would buy this someone in my family";
-            $a2Ar[4] = "I'd quite like this for myself";
-            $a2Ar[5] = "I'd like to buy this for someone right now";
-            $a2Ar[6] = "I've seen this product before";
-
             if (Input::has('id')) {
 
                 // set the page in the session
@@ -636,18 +761,17 @@ class HomeController extends BaseController {
 
                     $q1 = $input['opinion'];
 
-                    foreach($a1Ar as $idx => $v) {
+                    foreach($this->a1Ar as $idx => $v) {
                         if($v == $q1) {
                             $q1idx = $idx;
                         }
                     }
 
-
                     $q2 = (!empty($input['q2'])) ? $input['q2'] : array();
                     $q2idxAr = array();
 
                     foreach($q2 as $idx => $v) {
-                        foreach($a2Ar as $q2idx => $v2) {
+                        foreach($this->a2Ar as $q2idx => $v2) {
                             if($v == $v2) {
                                 $q2idxAr[] = $idx;
                             }
@@ -659,8 +783,8 @@ class HomeController extends BaseController {
                     $q4 = ($input['q4']) ? $input['q4'] : "";
 
                     $pa = $this->reports->doProductAnswer(
-                        $report->id, $productId,  $qAr[1], $qAr[2], $qAr[3],
-                        $qAr[4], $q1, $q1idx, implode(", ", $q2), implode(", ", $q2idxAr),
+                        $report->id, $productId,  $this->qAr[1], $this->qAr[2], $this->qAr[3],
+                        $this->qAr[4], $q1, $q1idx, implode(", ", $q2), implode(", ", $q2idxAr),
                         $q3, $q4
                     );
 
@@ -687,7 +811,7 @@ class HomeController extends BaseController {
             $this->product->incrementDisplayCount();
             $this->layout->content = View::make(
                 'products', array('product'     => $this->product,
-                                  'questionsAr' => $questionsAr,
+                                  'questionsAr' => $this->questionsAr,
                                   'validationErrorAr' => $validationErrorAr)
             );
 
@@ -702,22 +826,21 @@ class HomeController extends BaseController {
                     'questions' . $page,
                     array(
                          'validationErrorAr' => $validationErrorAr,
-                         'questionsAr' => $questionsAr,
-                         'q1Ar'        => $q1Ar,
-                         'q2Ar'        => $q2Ar,
-                         'q3Ar'        => $q3Ar,
-                         'q4Ar'        => $q4Ar,
-                         'q5Ar'        => $q5Ar,
-                         'q6Ar'        => $q6Ar,
-                         'q7Ar'        => $q7Ar,
-                         'q8Ar'        => $q8Ar,
-                         'q9Ar'        => $q9Ar,
-
-                         'q10Ar'       => $q10Ar,
-                         'q13Ar'       => $q13Ar,
-                         'q14Ar'       => $q14Ar,
-                         'q15Ar'       => $q15Ar,
-                         'q16Ar'       => $q16Ar,
+                         'questionsAr' => $this->questionsAr,
+                         'q1Ar'        => $this->q1Ar,
+                         'q2Ar'        => $this->q2Ar,
+                         'q3Ar'        => $this->q3Ar,
+                         'q4Ar'        => $this->q4Ar,
+                         'q5Ar'        => $this->q5Ar,
+                         'q6Ar'        => $this->q6Ar,
+                         'q7Ar'        => $this->q7Ar,
+                         'q8Ar'        => $this->q8Ar,
+                         'q9Ar'        => $this->q9Ar,
+                         'q10Ar'       => $this->q10Ar,
+                         'q13Ar'       => $this->q13Ar,
+                         'q14Ar'       => $this->q14Ar,
+                         'q15Ar'       => $this->q15Ar,
+                         'q16Ar'       => $this->q16Ar,
                     )
                 );
             }
@@ -733,7 +856,24 @@ class HomeController extends BaseController {
     }
 
     public function thanks() {
-        $this->layout->content = View::make('thanks');
+
+        $input = Input::all();
+
+
+        if(!empty($input['email'])) {
+
+            $report         = $this->reports->fetchReport(session_id());
+            $email          = $input['email'];
+            $opt_in         = (!empty($input['opt_in'])) ? $input['opt_in'] : "no";
+            $report->email  = $email;
+            $report->opt_in = $opt_in;
+
+            $report->save();
+            Session::set('sent_details', "yes");
+        }
+
+        $sent = (Session::has('sent_details') && Session::get('sent_details') == "yes" ) ? true : false;
+        $this->layout->content = View::make('thanks', array('sent' => $sent));
     }
 
     public function showProducts() {

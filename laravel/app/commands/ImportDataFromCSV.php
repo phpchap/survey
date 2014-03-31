@@ -50,6 +50,7 @@ class ImportDataFromCSV extends Command
 //        $colAr["WaiverMinOrder"] = 7;
 //        $colAr["RRP"] = 8;
         $colAr["Description"] = 2;
+        $colAr["ProductGroup"] = 3;
 
         // ignored titles
         $ignoredTitleAr["WRAP"] = 1;
@@ -74,20 +75,36 @@ class ImportDataFromCSV extends Command
 
         $counter = 0;
 
+        // create group 1
+        Group::create(array('display_count' => 0,
+                            'name' => 'Group One',
+                            'description' => 'Group One'));
+
+
+        // create group 1
+        Group::create(array('display_count' => 0,
+                            'name' => 'Group Two',
+                            'description' => 'Group Two'));
+
+        // create group 1
+        Group::create(array('display_count' => 0,
+                            'name' => 'Group Three',
+                            'description' => 'Group Three'));
+
+        // create group 1
+        Group::create(array('display_count' => 0,
+                            'name' => 'Group Four',
+                            'description' => 'Group Four'));
+
         // process each row
         foreach($csvFile as $row) {
 
             // ignore the first row
             if ($counter > 1) {
 
-                // create group 1
-                Group::create(array('display_count' => 0,
-                                    'name' => 'Group One',
-                                    'description' => 'Group One'));
-
                 // we only want numbered rows
                 if ($row[$colAr["ItemNo"]] != "") {
-                    if(count($row) > 3) {
+                    if(count($row) > 4) {
                         print_r($row);
                         die;
                     }
@@ -113,6 +130,12 @@ class ImportDataFromCSV extends Command
                         continue;
                     }
 
+                    if(!empty($row[$colAr["ProductGroup"]])) {
+                        $productGroup = addslashes($row[$colAr["ProductGroup"]]);
+                    } else {
+                        $productGroup = "";
+                    }
+
                     $picture_1_url = '/images/product_chooser/'.$itemNo.'.jpg';
 
                     echo "\n ---------------------------";
@@ -120,6 +143,7 @@ class ImportDataFromCSV extends Command
                     echo "\n Title :: ".$title;
                     echo "\n Description :: ".$description;
                     echo "\n Picture URL :: ".$picture_1_url;
+                    echo "\n Product Group :: ".$productGroup;
 
                     $hash = md5(time()."dsfgbse5ysgdrthe65rt");
 
@@ -130,7 +154,7 @@ class ImportDataFromCSV extends Command
                     $p->description     = $description;
                     $p->hash            = $hash;
                     $p->picture_url_1   = $picture_1_url;
-                    $p->group_id        = 1;
+                    $p->group_id        = $productGroup;
                     $p->save();
 
                 }
