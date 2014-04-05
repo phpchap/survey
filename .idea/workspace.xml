@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" afterPath="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/home.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions1.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions1.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions2.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions2.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions3.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions3.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions4.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions4.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions5.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions5.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions6.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions6.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/view_products.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/view_products.blade.php" />
-    </list>
+    <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="" />
     <ignored path="toowrappedup.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +26,7 @@
       <file leaf-file-name="ImportDataFromCSV.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="0" selection-start="4557" selection-end="4557" vertical-scroll-proportion="0.82531196" vertical-offset="1427" max-vertical-offset="2814">
+            <state line="115" column="88" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.27629232" vertical-offset="1427" max-vertical-offset="2814">
               <folding />
             </state>
           </provider>
@@ -403,7 +393,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="0" selection-start="4557" selection-end="4557" vertical-scroll-proportion="0.82531196" vertical-offset="1427" max-vertical-offset="2814">
+        <state line="115" column="88" selection-start="3509" selection-end="3509" vertical-scroll-proportion="0.27629232" vertical-offset="1427" max-vertical-offset="2814">
           <folding />
         </state>
       </provider>
