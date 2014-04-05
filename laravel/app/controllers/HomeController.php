@@ -210,6 +210,8 @@ class HomeController extends BaseController {
 
         $view = View::make('exportAnswers',
             array(
+            'a1Ar' => $this->a1Ar,
+            'a2Ar' => $this->a2Ar,
             'productPosition' => $productPosition,
             'productArray' => $productArray,
             'productQuestionAr' => $this->qAr,

@@ -87,13 +87,13 @@
                 foreach($productArray as $id => $product) {
                     if(!empty($userProductAnswer[$id])) {
                         echo "<td>";
-                        print (isset($productAnswer->answer_one_index)) ? $productAnswer->answer_one_index : '';
+                        print (isset($productAnswer->answer_one_index) && !empty($a1Ar[$productAnswer->answer_one_index])) ? $a1Ar[$productAnswer->answer_one_index] : '';
                         echo "</td>";
                         echo "<td>";
-                        print (isset($productAnswer->answer_two_index)) ? $productAnswer->answer_two_index : '';
+                        print (isset($productAnswer->answer_two_index) && !empty($a2Ar[$productAnswer->answer_two_index])) ? $a2Ar[$productAnswer->answer_two_index] : '';
                         echo "</td>";
                         echo "<td>";
-                        print (isset($productAnswer->answer_three)) ? '£'.$productAnswer->answer_three : '';
+                        print (isset($productAnswer->answer_three) && ctype_digit($productAnswer->answer_three)) ? '£'.$productAnswer->answer_three : '';
                         print "</td>";
                         echo "<td>";
                         print (isset($productAnswer->answer_four)) ? $productAnswer->answer_four : '';
