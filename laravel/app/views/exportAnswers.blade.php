@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <table border="1">
     <tr>
         <td>Gifting Survey</td>
@@ -5,7 +6,6 @@
             <td>#</td>
         <?php } ?>
         <td>Product Survey</td>
-
     </tr>
     <tr>
         <th>Respondant</th>
@@ -78,25 +78,54 @@
             $sql = "select product_id,report_id,answer_one_index,answer_two_index,answer_three,answer_four from product_answers where report_id = ".$report->id." order by product_id asc";
             $productAnswers = DB::select( DB::raw($sql));
 
+
             if(!empty($productAnswers)) {
+
+                unset($userProductAnswer);
+
                 foreach($productAnswers as $productAnswer) {
+
                     $answerPos = ($productPosition[$productAnswer->product_id] + 1);
                     $userProductAnswer[$answerPos] = $productAnswer;
                 }
 
+
                 foreach($productArray as $id => $product) {
-                    if(!empty($userProductAnswer[$id])) {
+
+                    if(!empty($userProductAnswer[$id]) && $report->id == 4) {
+
+                        $userAnswer = $userProductAnswer[$id];
+
+
                         echo "<td>";
-                        print (isset($productAnswer->answer_one_index) && !empty($a1Ar[$productAnswer->answer_one_index])) ? $a1Ar[$productAnswer->answer_one_index] : '';
+                        print (isset($userAnswer->answer_one_index) && !empty($a1Ar[$userAnswer->answer_one_index])) ? $a1Ar[$userAnswer->answer_one_index] : '';
                         echo "</td>";
                         echo "<td>";
-                        print (isset($productAnswer->answer_two_index) && !empty($a2Ar[$productAnswer->answer_two_index])) ? $a2Ar[$productAnswer->answer_two_index] : '';
+
+                        if(isset($userAnswer->answer_two_index) && !empty($userAnswer->answer_two_index)) {
+
+                            if(is_int(stripos($userAnswer->answer_two_index,","))) {
+                                $ap = explode(",", $userAnswer->answer_two_index);
+                                $bp = array();
+                                foreach($ap as $answer) {
+                                    $aa = ($answer + 1);
+                                    $bp[] = $a2Ar[$aa];
+                                }
+
+                                echo implode("<br/><br/>", $bp);
+                            } else if(!empty($a2Ar[$userAnswer->answer_two_index])) {
+                                echo $a2Ar[$userAnswer->answer_two_index];
+                            }
+                        } else {
+                            echo '';
+                        }
+
                         echo "</td>";
                         echo "<td>";
-                        print (isset($productAnswer->answer_three) && ctype_digit($productAnswer->answer_three)) ? '£'.$productAnswer->answer_three : '';
+                        print (isset($userAnswer->answer_three) && ctype_digit($userAnswer->answer_three)) ? '£'.html_entity_decode($userAnswer->answer_three, ENT_QUOTES, "UTF-8") : '';
                         print "</td>";
                         echo "<td>";
-                        print (isset($productAnswer->answer_four)) ? $productAnswer->answer_four : '';
+                        print (isset($userAnswer->answer_four)) ? $userAnswer->answer_four : '';
                         print "</td>";
                     } else {
                         for($i = 1; $i <= 4; $i++) {

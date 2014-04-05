@@ -139,9 +139,9 @@ class HomeController extends BaseController {
         $this->qAr[3] = "3) I would buy this for";
         $this->qAr[4] = "4) Do you have feedback on this product?";
 
-        $this->a1Ar[1] = "I don't really like this :(";
+        $this->a1Ar[1] = "I don't really like this";
         $this->a1Ar[2] = "It's OK";
-        $this->a1Ar[3] = "It's great :)";
+        $this->a1Ar[3] = "It's great";
 
         $this->a2Ar[1] = "I wouldn't buy this";
         $this->a2Ar[2] = "I would buy this for a friend";
@@ -204,10 +204,6 @@ class HomeController extends BaseController {
             $cnt++;
         }
 
-//        $results = DB::select( DB::raw("SELECT * FROM some_table WHERE some_col = '$someVariable'") );
-//        print_r($productPosition);
-//die;
-
         $view = View::make('exportAnswers',
             array(
             'a1Ar' => $this->a1Ar,
@@ -268,7 +264,6 @@ class HomeController extends BaseController {
 
         } else {
             echo $view;
-
         }
     }
 
@@ -278,7 +273,11 @@ class HomeController extends BaseController {
             session_destroy();
             die;
         }
-
+//        $p = $_POST;
+//        echo "<pre>";
+//        print_r($p);
+//        echo "</pre>";
+//        die;
         $this->initQandA();
 
         // have we finished?

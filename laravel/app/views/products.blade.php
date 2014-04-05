@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-lg-4">
-        <h4><?php echo stripslashes($product->title); ?></h4>
+        <h4><?php echo stripslashes($product->title)." (".$product->id.")"; ?></h4>
     </div>
     <div class="col-lg-8">
         <div class="progress progress-striped">
@@ -56,9 +56,9 @@
 
                                 var opinionArray = new Array;
 
-                                opinionArray[10] = "I don't really like this :(";
+                                opinionArray[10] = "I don't really like this";
                                 opinionArray[20] = "It's OK";
-                                opinionArray[30] = "It's great :)";
+                                opinionArray[30] = "It's great";
 
                                 $("#theSlider")
                                     .bind("slider:ready slider:changed", function (event, data) {
@@ -79,10 +79,9 @@
                         <span style="vertical-align: top"></span>
 
                         <p id="opinion_text">It's OK</p>
-                        <input type="hidden" name="opinion" value="It's OK"/>
+                        <input id="opinion" type="hidden" name="opinion" value="It's OK"/>
                     </div>
                 </div>
-
 
                 <!-- Q2 -->
                 <input type="hidden" name="id" value="<?php echo $product->id; ?>">

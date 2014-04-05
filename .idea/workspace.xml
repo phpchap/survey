@@ -4,6 +4,8 @@
     <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/products.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/products.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="toowrappedup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="exportAnswers.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="exportAnswers.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="164" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.5953757" vertical-offset="731" max-vertical-offset="1652">
+            <state line="5" column="22" selection-start="197" selection-end="197" vertical-scroll-proportion="-3.1818182" vertical-offset="0" max-vertical-offset="2058">
               <folding />
             </state>
           </provider>
@@ -38,8 +40,29 @@
       <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="213" column="33" selection-start="8683" selection-end="8687" vertical-scroll-proportion="-25.954546" vertical-offset="2411" max-vertical-offset="12446">
+            <state line="209" column="17" selection-start="8511" selection-end="8515" vertical-scroll-proportion="-10.136364" vertical-offset="2703" max-vertical-offset="12432">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/laravel/app/views/products.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="70" selection-start="607" selection-end="607" vertical-scroll-proportion="0.08030593" vertical-offset="182" max-vertical-offset="2394">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,7 +92,6 @@
         <option value="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" />
         <option value="$PROJECT_DIR$/laravel/app/database/migrations/2013_11_10_112822_create_product_chooser_report_table.php" />
         <option value="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" />
-        <option value="$PROJECT_DIR$/laravel/app/views/products.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/models/EloquentProductRepository.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/thanks.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/routes.php" />
@@ -78,14 +100,16 @@
         <option value="$PROJECT_DIR$/laravel/app/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" />
+        <option value="$PROJECT_DIR$/laravel/app/views/products.blade.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="116" />
-    <option name="width" value="1680" />
-    <option name="height" value="1050" />
+    <option name="x" value="1679" />
+    <option name="y" value="22" />
+    <option name="width" value="1368" />
+    <option name="height" value="746" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -113,6 +137,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,7 +174,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -170,14 +195,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,8 +206,8 @@
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -248,7 +268,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="116" width="1680" height="1050" extended-state="0" />
+    <frame x="1679" y="22" width="1368" height="746" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -256,7 +276,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19056372" sideWeight="0.9884868" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23939393" sideWeight="0.9884868" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -281,14 +301,22 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php</url>
+          <line>271</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php</url>
+          <line>280</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laravel/app/database/seeds/ProductChooserSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1008" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="25" selection-start="2553" selection-end="2553" vertical-scroll-proportion="0.09982175" vertical-offset="1218" max-vertical-offset="2814" />
@@ -319,11 +347,6 @@
         <state line="4" column="20" selection-start="84" selection-end="84" vertical-scroll-proportion="0.06473988" vertical-offset="0" max-vertical-offset="865" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/views/products.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="49" selection-start="1139" selection-end="1139" vertical-scroll-proportion="-0.0" vertical-offset="476" max-vertical-offset="2408" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="887" />
@@ -344,31 +367,55 @@
         <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-3.174688" vertical-offset="1795" max-vertical-offset="2660" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/public/index.php">
+    <entry file="file://$PROJECT_DIR$/laravel/app/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1710" column="13" selection-start="62674" selection-end="62674" vertical-scroll-proportion="0.5821168" vertical-offset="23551" max-vertical-offset="25242">
+        <state line="40" column="13" selection-start="2020" selection-end="2020" vertical-scroll-proportion="0.46589595" vertical-offset="157" max-vertical-offset="1106" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/bootstrap/start.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="32" selection-start="488" selection-end="488" vertical-scroll-proportion="0.14973262" vertical-offset="0" max-vertical-offset="994">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/views/layouts/master.blade.php">
+    <entry file="file://$PROJECT_DIR$/laravel/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="13" selection-start="2020" selection-end="2020" vertical-scroll-proportion="0.46589595" vertical-offset="157" max-vertical-offset="1106">
+        <state line="1775" column="47" selection-start="65034" selection-end="65034" vertical-scroll-proportion="0.1166348" vertical-offset="24719" max-vertical-offset="25242">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="33" selection-start="8683" selection-end="8687" vertical-scroll-proportion="-25.954546" vertical-offset="2411" max-vertical-offset="12446">
+        <state line="209" column="17" selection-start="8511" selection-end="8515" vertical-scroll-proportion="-10.136364" vertical-offset="2703" max-vertical-offset="12432">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="164" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.5953757" vertical-offset="731" max-vertical-offset="1652">
+        <state line="5" column="22" selection-start="197" selection-end="197" vertical-scroll-proportion="-3.1818182" vertical-offset="0" max-vertical-offset="2058">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/app/views/products.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="70" selection-start="607" selection-end="607" vertical-scroll-proportion="0.08030593" vertical-offset="182" max-vertical-offset="2394">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#4;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
