@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="col-lg-4">
-        <h4>Questionaire Progress</h4>
+        <h4>Survey Progress</h4>
     </div>
     <div class="col-lg-8">
         <div class="progress progress-striped">

@@ -71,7 +71,7 @@ class ImportDataFromCSV extends Command
         $ignoredTitleAr["PRINTS"] = 1;
 
         // set the path to the CSV
-        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_FINAL.csv');
+        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_Latest.csv');
 
         $counter = 0;
 
@@ -100,7 +100,7 @@ class ImportDataFromCSV extends Command
         foreach($csvFile as $row) {
 
             // ignore the first row
-            if ($counter > 1) {
+            if ($counter > 0) {
 
                 // we only want numbered rows
                 if ($row[$colAr["ItemNo"]] != "") {
