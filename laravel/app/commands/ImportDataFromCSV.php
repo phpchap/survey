@@ -149,6 +149,7 @@ class ImportDataFromCSV extends Command
 
 
                     $p = new Product;
+                    $p->id              = $itemNo;
                     $p->display_count   = 0;
                     $p->title           = $title;
                     $p->description     = $description;

@@ -25,6 +25,20 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        // question 6 why show/hide
+        $('input:radio[name=q6]').change(function(){
+            // hide / show why box
+            if($('input:radio[name=q6]:checked').val() == 'Never') {
+                $("#display_q6_why").show();
+            } else {
+                $("#display_q6_why").hide();
+            }
+        });
+    })
+</script>
+
 <div class="row">
 
     {{ Form::open(array('url' => '/survey')) }}
@@ -92,6 +106,10 @@
                         <?php echo $qval; ?>
                     </label>
                 <?php } ?>
+                <label class="radio-inline" id="display_q6_why" style="display:none">
+                    Please state why?
+                    <textarea name="q6_why" class="form-control" rows="2" cols="14"></textarea>
+                </label>
             </div>
         </div>
 

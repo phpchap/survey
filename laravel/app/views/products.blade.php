@@ -45,7 +45,10 @@
                 </div>
             </div>
         </div>
+<?php
 
+
+?>
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="col-sm-6 col-md-4 col-lg-6" style="padding-left:0;padding-right:15px;">
                 <!-- Q1 -->
@@ -67,11 +70,10 @@
                                     });
                             })
                         </script>
-                        <p>1) What do you think about this? <span style="font-style: italic">Use the slider below</span><?php echo (!empty($validationErrorAr['q1']))
-                                ? " <br/><span class='invalid'>"
-                                . $validationErrorAr['q1'] . "</span>" : ""; ?></p>
 
-                        <input value="20" type="text" id="theSlider"
+                        <p>1) What do you think about this? <span style="font-style: italic">Use the slider below</span></p>
+
+                        <input value="<?php echo ($q1p != "") ? $q1p : "20" ; ?>" type="text" id="theSlider"
                                data-slider="true"
                                data-slider-range="10,30" data-slider-step="10"
                                data-slider-snap="true" data-slider-theme="volume"
@@ -98,12 +100,14 @@
                             <label>
                                 <input type="checkbox"
                                        value="I would buy this for a friend" name="q2[]"
+                                       <?php echo ($q2 == "I would buy this for a friend") ? 'checked="yes"' : ''; ?>
                                        style="margin:3px 5px 0 0;">
                                 <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>> I <b>would</b> buy this for a friend</p>
                             </label>
                             <label>
                                 <input type="checkbox"
                                        value="I would buy this someone in my family"
+                                       <?php echo ($q2 == "I would buy this someone in my family") ? 'checked="yes"' : ''; ?>
                                        name="q2[]" style="margin:3px 5px 0 0;">
 
                                 <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I <b>would</b> buy this someone in my family</p>
@@ -111,18 +115,21 @@
                             <label>
                                 <input type="checkbox"
                                        value="I'd quite like this for myself"
+                                    <?php echo ($q2 == "I'd quite like this for myself") ? 'checked="yes"' : ''; ?>
                                        name="q2[]" style="margin:3px 5px 0 0;">
                                 <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I'd quite like this for myself</p>
                             </label>
                             <label>
                                 <input type="checkbox"
                                        value="I'd like to buy this for someone right now"
+                                       <?php echo ($q2 == "I'd like to buy this for someone right now") ? 'checked="yes"' : ''; ?>
                                        name="q2[]" style="margin:3px 5px 0 0;">
                                 <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I'd like to buy this for someone right now</p>
                             </label>
                             <label>
                                 <input type="checkbox"
                                        value="I've seen this product before" name="q2[]"
+                                       <?php echo ($q2 == "I've seen this product before") ? 'checked="yes"' : ''; ?>
                                        style="margin:3px 5px 0 0;">
                                 <p <?php echo (!empty($validationErrorAr['q2'])) ? "class='invalid_text'" : ""; ?>>I've seen this product before</p>
                             </label>

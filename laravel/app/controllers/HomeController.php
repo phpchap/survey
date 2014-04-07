@@ -273,11 +273,7 @@ class HomeController extends BaseController {
             session_destroy();
             die;
         }
-//        $p = $_POST;
-//        echo "<pre>";
-//        print_r($p);
-//        echo "</pre>";
-//        die;
+
         $this->initQandA();
 
         // have we finished?
@@ -448,19 +444,29 @@ class HomeController extends BaseController {
                 $q6 = $input['q6'];
                 $q6IdxAr = array();
 
-                foreach($this->q6Ar as $idx => $v) {
-                    if($v == $q6) {
-                        $q6IdxAr[] = $idx;
+                if($q6 != "Never") {
+                    foreach($this->q6Ar as $idx => $v) {
+                        if($v == $q6) {
+                            $q6IdxAr[] = $idx;
+                        }
+                    }
+                } else {
+                    if (!empty($input['q6_why'])) {
+                        $q6IdxAr = array(0);
+                        $q6 = $input['q6_why'];
+                    } else {
+                        $validationErrorAr["q6"] = "Please explain why";
                     }
                 }
 
-                $this->reports->doAnswer($report->id, 6, $this->questionsAr[6], $q6, implode(", ", $q6IdxAr));
-
+                if(!empty($q6IdxAr)) {
+                    $this->reports->doAnswer($report->id, 6, $this->questionsAr[6], $q6, implode(", ", $q6IdxAr));
+                }
             }
+
 
             // if we don't have any validation errors then proceed to the next step
             if(empty($validationErrorAr)) {
-
                 // bump the next page
                 $page = 3;
                 $nextPage = 4;
@@ -500,6 +506,8 @@ class HomeController extends BaseController {
             /////////////////////////////////////////
 
 
+            $q8IdxAr = array();
+
             if(!isset($input['q8'])) {
 
                 $validationErrorAr["q8"] = "Please answer question 8";
@@ -508,22 +516,28 @@ class HomeController extends BaseController {
                 $q8 = $input['q8'];
                 if($q8 != "Never") {
 
-                    $q8IdxAr = array();
-
                     foreach($this->q8Ar as $idx => $v) {
                         if($v == $q8) {
                             $q8IdxAr[] = $idx;
                         }
                     }
                 } else {
-                    $q8IdxAr = array(0);
-                    $q8 = $input['q8_why'];
-                }
 
-                $this->reports->doAnswer($report->id, 8, $this->questionsAr[8], $q8, implode(", ", $q8IdxAr));
+                    if (!empty($input['q8_why'])) {
+                        $q8IdxAr = array(0);
+                        $q8 = $input['q8_why'];
+                    } else {
+                        $validationErrorAr["q8"] = "Please explain why";
+                    }
+                }
+                if(!empty($q8IdxAr)) {
+                    $this->reports->doAnswer($report->id, 8, $this->questionsAr[8], $q8, implode(", ", $q8IdxAr));
+                }
             }
 
             /////////////////////////////////////////
+            $q9IdxAr = array();
+
             if(!isset($input['q9'])) {
 
                 $validationErrorAr["q9"] = "Please answer question 9";
@@ -531,20 +545,23 @@ class HomeController extends BaseController {
             } else {
                 $q9 = $input['q9'];
                 if($q9 != "Never") {
-
-                    $q9IdxAr = array();
-
                     foreach($this->q9Ar as $idx => $v) {
                         if($v == $q9) {
                             $q9IdxAr[] = $idx;
                         }
                     }
                 } else {
-                    $q9IdxAr = array(0);
-                    $q9 = $input['q9_why'];
+                    if (!empty($input['q9_why'])) {
+                        $q9IdxAr = array(0);
+                        $q9 = $input['q9_why'];
+                    } else {
+                        $validationErrorAr["q9"] = "Please explain why";
+                    }
+                }
+                if(!empty($q9IdxAr)) {
+                    $this->reports->doAnswer($report->id, 9, $this->questionsAr[9], $q9, implode(", ", $q9IdxAr));
                 }
 
-                $this->reports->doAnswer($report->id, 9, $this->questionsAr[9], $q9, implode(", ", $q9IdxAr));
             }
 
             // if theres not validation errors then proceed
@@ -743,6 +760,11 @@ class HomeController extends BaseController {
         // if the user has completed the questions then show the products.
         if(Session::has('completed_questions') && Session::get('completed_questions') == true) {
 
+            $q1 = "";
+            $q2 = "";
+            $q3 = "";
+            $q4 = "";
+
             if(Session::has('current_product_id')) {
                 $this->product = $this->products->find(Session::get('current_product_id'));
             } else {
@@ -755,10 +777,12 @@ class HomeController extends BaseController {
                 $input = Input::all();
                 $product = $this->products->fetchProductByIdAndHash($input['id'], $input['hash']);
 
+
                 if(is_object($product)) {
 
                     $productId = $product->id;
                     $report = $this->reports->fetchReport(session_id());
+                    $validationErrorAr = array();
 
                     $q1 = $input['opinion'];
 
@@ -768,52 +792,76 @@ class HomeController extends BaseController {
                         }
                     }
 
-                    $q2 = (!empty($input['q2'])) ? $input['q2'] : array();
-                    $q2idxAr = array();
-
-                    foreach($q2 as $idx => $v) {
-                        foreach($this->a2Ar as $q2idx => $v2) {
-                            if($v == $v2) {
-                                $q2idxAr[] = $idx;
+                    if (!empty($input['q2'])) {
+                        $q2 = $input['q2'];
+                        $q2idxAr = array();
+                        foreach($q2 as $idx => $v) {
+                            foreach($this->a2Ar as $q2idx => $v2) {
+                                if($v == $v2) {
+                                    $q2idxAr[] = $idx;
+                                }
                             }
                         }
+                    } else {
+                        $validationErrorAr['q2'] = "Please select at least one answer";
                     }
 
-                    $q3 = ($input['q3']) ? $input['q3'] : "";
+                    if(!empty($input['q3'])) {
+                        $q3 = $input['q3'];
+                    } else {
+                        $validationErrorAr['q3']="How much would you pay for this product";
+                    }
 
                     $q4 = ($input['q4']) ? $input['q4'] : "";
 
-                    $pa = $this->reports->doProductAnswer(
-                        $report->id, $productId,  $this->qAr[1], $this->qAr[2], $this->qAr[3],
-                        $this->qAr[4], $q1, $q1idx, implode(", ", $q2), implode(", ", $q2idxAr),
-                        $q3, $q4
-                    );
+                    if (empty($validationErrorAr) && count($validationErrorAr) == 0) {
 
-                    // move on to the next product
-                    $this->product = $this->products->getNext($input['id']);
+                        $pa = $this->reports->doProductAnswer(
+                            $report->id, $productId,  $this->qAr[1], $this->qAr[2], $this->qAr[3],
+                            $this->qAr[4], $q1, $q1idx, implode(", ", $q2), implode(", ", $q2idxAr),
+                            $q3, $q4
+                        );
 
-                    if(is_object($this->product)) {
+                        // move on to the next product
+                        $this->product = $this->products->getNext($input['id']);
 
-                        Session::set('current_product_id', $this->product->id);
-                        $report->step = "Product ID: ".$this->product->id;
-                        $report->save();
+                        if(is_object($this->product)) {
 
-                    } else {
-                        // set the page in the session
-                        Session::set('completed_product_questions', true);
-                        return Redirect::to('/thanks');
+                            Session::set('current_product_id', $this->product->id);
+                            $report->step = "Product ID: ".$this->product->id;
+                            $report->save();
+
+                        } else {
+                            // set the page in the session
+                            Session::set('completed_product_questions', true);
+                            return Redirect::to('/thanks');
+                        }
                     }
-
                 } else {
                     throw new Exception("Could not find product");
                 }
+            }
+
+            $q1p = "";
+            if(isset($q1) && $q1 == "I don't really like this") {
+                $q1p = 10;
+            } else if(isset($q1) && $q1 == "It's OK") {
+                $q1p = 20;
+            } else if(isset($q1) && $q1 == "It's great") {
+                $q1p = 30;
             }
 
             $this->product->incrementDisplayCount();
             $this->layout->content = View::make(
                 'products', array('product'     => $this->product,
                                   'questionsAr' => $this->questionsAr,
-                                  'validationErrorAr' => $validationErrorAr)
+                                  'validationErrorAr' => $validationErrorAr,
+                                  'q1' => $q1,
+                                  'q1p'=> $q1p,
+                                  'q2' => $q2,
+                                  'q3' => $q3,
+                                  'q4' => $q4
+                )
             );
 
 

@@ -14,7 +14,6 @@
     <?php if($sent == true) { ?>
         <p class="lead">We'll let you know as soon as we go live!</p>
     <?php } else { ?>
-        <p class="lead">If you would like to hear more about toowrappedup.com, you can join our mailing list</p>
         {{ Form::open(array('url' => '/thanks')) }}
         <div class="form-group">
             <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email to join our mailing list">
