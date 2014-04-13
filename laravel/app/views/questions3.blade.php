@@ -57,6 +57,7 @@
                         ?>
                         <label class="radio-inline">
                             <input type="radio" name="q7" id="q7"
+                                   <?php echo ($q7 == $qval) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
@@ -73,20 +74,27 @@
                         ? " <span class='invalid'>"
                         . $validationErrorAr['q8'] . "</span>" : ""; ?></h4>
                     <?php
+                    $q8why = "";
+                    if(!empty($_POST['q8_why']) && !empty($_POST['q8'])) {
+                        $q8 = $_POST['q8'];
+                        $q8why = $_POST['q8_why'];
+                    }
+
                     // question eight
                     foreach ($q8Ar as $id => $qval) {
                         ?>
                         <label class="radio-inline">
                             <input type="radio" name="q8" class="q8" id="q8_<?php echo $id; ?>"
+                                   <?php echo ($q8 == $qval) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
                     <?php
                     }
                     ?>
-                    <label class="radio-inline" id="display_q8_why" style="display:none">
+                    <label class="radio-inline" id="display_q8_why" <?php if($q8why=="") { ?>style="display:none"<?php } ?>>
                         Please state why?
-                        <textarea name="q8_why" class="form-control" rows="2"></textarea>
+                        <textarea name="q8_why" class="form-control" rows="2"><?php echo $q8why; ?></textarea>
                     </label>
             </div>
         </div>
@@ -98,20 +106,27 @@
                         ? " <span class='invalid'>"
                         . $validationErrorAr['q9'] . "</span>" : ""; ?></h4>
                 <?php
+                $q9why = "";
+                if(!empty($_POST['q9_why']) && !empty($_POST['q9'])) {
+                    $q9 = $_POST['q9'];
+                    $q9why = $_POST['q9_why'];
+                }
+
                 // question nine
                 foreach ($q9Ar as $id => $qval) {
                     ?>
                     <label class="radio-inline">
                         <input type="radio" name="q9" id="q9_<?php echo $id; ?>"
+                               <?php echo ($q9 == $qval) ? "checked=checked" : ""; ?>
                                value="<?php echo $qval; ?>">
                         <?php echo $qval; ?>
                     </label>
                 <?php
                 }
                 ?>
-                <label class="radio-inline" id="display_q9_why" style="display:none">
+                <label class="radio-inline" id="display_q9_why" <?php if($q9why=="") { ?>style="display:none"<?php } ?>>
                     Please state why?
-                    <textarea name="q9_why" class="form-control" rows="2"></textarea>
+                    <textarea name="q9_why" class="form-control" rows="2"><?php echo $q9why; ?></textarea>
                 </label>
             </div>
         </div>

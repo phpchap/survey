@@ -47,6 +47,7 @@
                     ?>
                     <label class="radio-inline">
                         <input type="radio" name="q1" id="q1"
+                               <?php if($q1==$qval) { ?>checked=checked<?php } ?>
                                value="<?php echo $qval; ?>">
                         <?php echo $qval; ?>
                     </label>
@@ -70,6 +71,7 @@
                     ?>
                     <label class="radio-inline">
                         <input type="radio" name="q2" id="q2"
+                               <?php if($q2==$qval) { ?>checked=checked<?php } ?>
                                value="<?php echo $qval; ?>">
                         <?php echo $qval; ?>
                     </label>
@@ -92,6 +94,7 @@
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" name="q3[]" id="q3"
+                                   <?php echo (stripos($q3, str_replace(array("Very easy, ", "Not very easy, "), "", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>

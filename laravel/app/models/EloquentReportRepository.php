@@ -148,4 +148,30 @@ class EloquentReportRepository
         return $productAnswer;
 
     }
+
+    /**
+     * Fetch a product answer
+     *
+     * @param $reportId
+     * @param $productId
+     *
+     * @return bool
+     */
+    public function getProductAnswer($reportId, $productId)
+    {
+        $filter = sprintf(
+            "report_id = '%s' AND product_id = '%s'",
+            $reportId,
+            $productId
+        );
+
+        $productAnswer = ProductAnswer::whereRaw($filter)->first();
+
+        if(is_object($productAnswer)) {
+            return $productAnswer;
+        }
+
+        return false;
+    }
+
 }

@@ -59,6 +59,7 @@
                     <div class="checkbox">
                         <label class="checkbox">
                             <input type="checkbox" name="q4[]" id="q4"
+                                   <?php echo (stripos($q4, str_replace(array("Very easy, ", "Not very easy, "), "", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
@@ -80,6 +81,7 @@
                     ?>
                         <label class="checkbox-inline">
                             <input type="checkbox" name="q5[]" id="q5"
+                                   <?php echo (stripos($q5, $qval) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
@@ -97,18 +99,24 @@
                         ? " <span class='invalid'>"
                         . $validationErrorAr['q6'] . "</span>" : ""; ?></h4>
                 <?php
+                $q6why = "";
+                if(!empty($_POST['q6_why']) && !empty($_POST['q6'])) {
+                    $q6 = $_POST['q6'];
+                    $q6why = $_POST['q6_why'];
+                }
                 // question six
                 foreach ($q6Ar as $id => $qval) {
                     ?>
                     <label class="radio-inline">
                         <input type="radio" name="q6" id="q6"
+                               <?php echo ($q6 == $qval) ? "checked=checked" : ""; ?>
                                value="<?php echo $qval; ?>">
                         <?php echo $qval; ?>
                     </label>
                 <?php } ?>
-                <label class="radio-inline" id="display_q6_why" style="display:none">
+                <label class="radio-inline" id="display_q6_why" <?php if($q6why=="") { ?>style="display:none"<?php } ?>>
                     Please state why?
-                    <textarea name="q6_why" class="form-control" rows="2" cols="14"></textarea>
+                    <textarea name="q6_why" class="form-control" rows="2" cols="14"><?php echo $q6why; ?></textarea>
                 </label>
             </div>
         </div>

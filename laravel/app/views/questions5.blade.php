@@ -45,6 +45,7 @@
                     <div class="checkbox">
                         <label class="checkbox">
                             <input type="checkbox" name="q13[]" id="q13"
+                                   <?php echo (stripos($q13, str_replace(array("gifts"), "", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
@@ -69,6 +70,7 @@
                     <div class="checkbox">
                         <label class="checkbox">
                             <input type="checkbox" name="q14[]" id="q14"
+                                   <?php echo (stripos($q14, str_replace(array("gifts"), "", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>

@@ -20,7 +20,7 @@ class HomeController extends BaseController {
         $this->questionsAr[5]="5. Who do you buy gifts for? Please tick all that apply";
         $this->questionsAr[6]="6. How often do you buy gifts online?";
         $this->questionsAr[7]="7. How often do you treat yourself to a present online?";
-        $this->questionsAr[8]="8. Do you ever purchased wrapping paper online?";
+        $this->questionsAr[8]="8. Do you ever purchase wrapping paper online?";
         $this->questionsAr[9]="9. Do you ever purchase greetings cards online?";
         $this->questionsAr[10]="10. Do you usually buy wrapping paper & cards at the same time as the corresponding gift?";
         $this->questionsAr[11]="11. What would make you more inclined to buy gifts online?";
@@ -29,7 +29,6 @@ class HomeController extends BaseController {
         $this->questionsAr[14]="14. Which of the following types of gifts do you buy?";
         $this->questionsAr[15]="15. How often do you buy gift tags, bows or ribbons for your presents?";
         $this->questionsAr[16]="16. Which of the following best describes your approach to present wrapping?";
-
 
         // answers for q1
         $this->q1Ar[] = "Under 18";
@@ -45,18 +44,18 @@ class HomeController extends BaseController {
         $this->q2Ar[] = "Female";
 
         // answers for q3
-        $this->q3Ar[] = "Very easy, as I live/work near shops";
+        $this->q3Ar[] = "Very easy, I live/work near shops";
         $this->q3Ar[] = "Very easy, I purchase online";
-        $this->q3Ar[] = "Not very easy, as I work long hours";
-        $this->q3Ar[] = "Not very easy, as I don’t live/work near shops";
-        $this->q3Ar[] = "Not very easy, as the shops near me aren’t very good";
+        $this->q3Ar[] = "Not very easy, I work long hours";
+        $this->q3Ar[] = "Not very easy, I don’t live/work near shops";
+        $this->q3Ar[] = "Not very easy, the shops near me aren’t very good";
         $this->q3Ar[] = "I prefer to purchase gifts at the weekend";
 
         // answers for q4
-        $this->q4Ar[] = "Very easy, as I live/work near card shops";
+        $this->q4Ar[] = "Very easy, I live/work near card shops";
         $this->q4Ar[] = "Very easy, I purchase online";
-        $this->q4Ar[] = "Not very easy, as I work long hours";
-        $this->q4Ar[] = "Not very easy, as I don’t live/work near card shops";
+        $this->q4Ar[] = "Not very easy, I work long hours";
+        $this->q4Ar[] = "Not very easy, I don’t live/work near card shops";
         $this->q4Ar[] = "Not very easy, as the card shops near me aren’t very good";
         $this->q4Ar[] = "I prefer to purchase wrapping paper/cards at the weekend";
 
@@ -104,7 +103,7 @@ class HomeController extends BaseController {
         $this->q13Ar[] = "New home gifts";
         $this->q13Ar[] = "Anniversary gifts";
         $this->q13Ar[] = "Thank you gifts";
-        $this->q13Ar[] = "Halloween gift";
+        $this->q13Ar[] = "Halloween gifts";
         $this->q13Ar[] = "Not planning on buying any gifts";
 
         // answer for q14
@@ -145,7 +144,7 @@ class HomeController extends BaseController {
 
         $this->a2Ar[1] = "I wouldn't buy this";
         $this->a2Ar[2] = "I would buy this for a friend";
-        $this->a2Ar[3] = "I would buy this someone in my family";
+        $this->a2Ar[3] = "I would buy this for someone in my family";
         $this->a2Ar[4] = "I'd quite like this for myself";
         $this->a2Ar[5] = "I'd like to buy this for someone right now";
         $this->a2Ar[6] = "I've seen this product before";
@@ -285,24 +284,26 @@ class HomeController extends BaseController {
 
         $report = $this->reports->fetchReport(session_id());
 
-
         // do we pages
         if (Session::has('page') && Session::has('nextPage'))
         {
             // get the question
             $page = Session::get('page');
             $nextPage = Session::get('nextPage');
-
         } else {
-
             // this is the first time viewed so lets set the page/next page
             $page = 1;
             $nextPage = 2;
-
         }
 
-
         $validationErrorAr = array();
+
+        $q1 = $q2 = $q3 = "";
+        $q4 = $q5 = $q6 = "";
+        $q7 = $q8 = $q9 = "";
+        $q10 = $q11 = $q12 = "";
+        $q13 = $q14 = "";
+        $q15 = $q16 = "";
 
         // first questions
         if ($page == 1 && Input::has('s') || Input::has('q1') && Input::has('q2') && Input::has('q3'))
@@ -374,7 +375,7 @@ class HomeController extends BaseController {
                 $page = 2;
                 $nextPage = 3;
 
-                $report->step = $nextPage;
+                $report->step = 'Page 2';
                 $report->save();
 
                 // set the page in the session
@@ -464,14 +465,13 @@ class HomeController extends BaseController {
                 }
             }
 
-
             // if we don't have any validation errors then proceed to the next step
             if(empty($validationErrorAr)) {
                 // bump the next page
                 $page = 3;
                 $nextPage = 4;
 
-                $report->step = $nextPage;
+                $report->step = 'Page 3';
                 $report->save();
 
                 // set the page in the session
@@ -571,7 +571,7 @@ class HomeController extends BaseController {
                 $page = 4;
                 $nextPage = 5;
 
-                $report->bumpStep();
+                $report->step = 'Page 4';
                 $report->save();
 
                 // set the page in the session
@@ -585,7 +585,6 @@ class HomeController extends BaseController {
             $input = Input::all();
 
             /////////////////////////////////////////
-
             if(!isset($input['q10'])) {
 
                 $validationErrorAr["q10"] = "Please answer question 10";
@@ -606,7 +605,6 @@ class HomeController extends BaseController {
             }
 
             /////////////////////////////////////////
-
             if(empty($input['q11'])) {
                 $validationErrorAr["q11"] = "Please answer question 11";
             } else {
@@ -628,7 +626,7 @@ class HomeController extends BaseController {
                 $page = 5;
                 $nextPage = 6;
 
-                $report->step = $nextPage;
+                $report->step = 'Page 5';
                 $report->save();
 
                 // set the page in the session
@@ -689,7 +687,7 @@ class HomeController extends BaseController {
                 $page = 6;
                 $nextPage = 7;
 
-                $report->step = $nextPage;
+                $report->step = 'Page 6';
                 $report->save();
 
                 // set the page in the session
@@ -742,7 +740,7 @@ class HomeController extends BaseController {
 
             if(empty($validationErrorAr)) {
 
-                $report->step = 'display_question_page';
+                $report->step = 'Display Question Thanks';
                 $report->save();
 
                 // set the page in the session
@@ -760,23 +758,43 @@ class HomeController extends BaseController {
         // if the user has completed the questions then show the products.
         if(Session::has('completed_questions') && Session::get('completed_questions') == true) {
 
+            $userAnswerAr = array();
+            $displayback = true;
+
             $q1 = "";
             $q2 = "";
             $q3 = "";
             $q4 = "";
 
+            $input = Input::all();
+
             if(Session::has('current_product_id')) {
-                $this->product = $this->products->find(Session::get('current_product_id'));
+                if(!empty($input['backaction']) && $input['backaction'] == 'yes') {
+                    $this->product = $this->products->getPrevious(Session::get('current_product_id'));
+                } else {
+                    $this->product = $this->products->find(Session::get('current_product_id'));
+                }
             } else {
-                $this->product = $this->products->getNext();
+                $displayback = false;
+                if(!emptY($input['backaction']) && $input['backaction'] == 'yes') {
+
+                    $this->product = $this->products->getPrevious(Session::get('current_product_id'));
+
+                    if($this->product == NULL) {
+                        $this->product = $this->products->getNext();
+                    }
+
+                } else {
+                    $this->product = $this->products->getNext();
+                }
+                Session::set('current_product_id', $this->product->id);
             }
 
-            if (Input::has('id')) {
+            if (Input::has('id') && $input['backaction'] == 'no') {
 
                 // set the page in the session
                 $input = Input::all();
                 $product = $this->products->fetchProductByIdAndHash($input['id'], $input['hash']);
-
 
                 if(is_object($product)) {
 
@@ -784,17 +802,21 @@ class HomeController extends BaseController {
                     $report = $this->reports->fetchReport(session_id());
                     $validationErrorAr = array();
 
-                    $q1 = $input['opinion'];
+                    if(Input::has('pq1')) {
+                        $q1 = $input['pq1'];
 
-                    foreach($this->a1Ar as $idx => $v) {
-                        if($v == $q1) {
-                            $q1idx = $idx;
+                        foreach($this->a1Ar as $idx => $v) {
+                            if($v == $q1) {
+                                $q1idx = $idx;
+                            }
                         }
                     }
 
+                    $q2 = array();
+                    $q2idxAr = array();
+
                     if (!empty($input['q2'])) {
                         $q2 = $input['q2'];
-                        $q2idxAr = array();
                         foreach($q2 as $idx => $v) {
                             foreach($this->a2Ar as $q2idx => $v2) {
                                 if($v == $v2) {
@@ -803,7 +825,7 @@ class HomeController extends BaseController {
                             }
                         }
                     } else {
-                        $validationErrorAr['q2'] = "Please select at least one answer";
+//                        $validationErrorAr['q2'] = "Please select at least one answer";
                     }
 
                     if(!empty($input['q3'])) {
@@ -851,19 +873,62 @@ class HomeController extends BaseController {
                 $q1p = 30;
             }
 
+
+            if(empty($validationErrorAr)) {
+
+                $productAnswer = $this->reports->getProductAnswer($report->id, $this->product->id);
+
+                if($productAnswer != false) {
+                    $userAnswerAr['q1'] =  $productAnswer->answer_one;
+                    $userAnswerAr['q2'] =  $productAnswer->answer_two;
+                    $userAnswerAr['q3'] =  $productAnswer->answer_three;
+                    $userAnswerAr['q4'] =  $productAnswer->answer_four;
+                }
+            } else {
+
+                if(Input::has('opinion')) {
+                    $userAnswerAr['q1'] = Input::get('opinion');
+                }
+
+                if(Input::has('pq1')) {
+                    $userAnswerAr['q1'] = Input::get('pq1');
+                }
+
+                if(Input::has('q2')) {
+                    $userAnswerAr['q2'] = implode(", ", Input::get('q2'));
+                }
+
+                if(Input::has('q3')) {
+                    $userAnswerAr['q3'] = Input::get('q3');
+                }
+
+                if(Input::has('q4')) {
+                    $userAnswerAr['q4'] = Input::get('q4');
+
+                }
+            }
+
+            $progressAr = $this->products->getProgress(Session::get('current_product_id'));
+
+            // save progress in report
+            $report->step = $progressAr['answerPosition']." / ".$progressAr['size']." (".$progressAr['percentage']."%)";
+            $report->save();
+
             $this->product->incrementDisplayCount();
             $this->layout->content = View::make(
                 'products', array('product'     => $this->product,
                                   'questionsAr' => $this->questionsAr,
                                   'validationErrorAr' => $validationErrorAr,
+                                  'progressAr' => $progressAr,
                                   'q1' => $q1,
                                   'q1p'=> $q1p,
                                   'q2' => $q2,
                                   'q3' => $q3,
-                                  'q4' => $q4
+                                  'q4' => $q4,
+                                  'displayback' => $displayback,
+                                  'userAnswerAr' => $userAnswerAr
                 )
             );
-
 
         } else {
 
@@ -871,25 +936,64 @@ class HomeController extends BaseController {
                 //
                 $this->layout->content = View::make('view_products');
             } else {
+
+                if($q3!="") {
+                    $q3 = str_replace(array("Very easy, ", "Not very easy, "), "", implode(",",$q3));
+                }
+                if($q4!="") {
+                    $q4 = str_replace(array("Very easy, ", "Not very easy, "), "", implode(",",$q4));
+                }
+                if($q5!="") {
+                    $q5 = implode(",",$q5);
+                }
+                if($q13!="") {
+                    $q13 = str_replace(array("gifts"), "", implode(",",$q13));
+                }
+                if($q14!="") {
+                    $q14 = str_replace(array("accessories"), "", implode(",",$q14));
+                }
+                if($q15!="") {
+                    $q15 = str_replace(array("not very often"), "not really that much", $q15);
+                }
+                if($q16!="") {
+                    $q16 = str_replace(array("I prefer not to wrap presents, as I"), "", $q16);
+                }
+
                 $this->layout->content = View::make(
                     'questions' . $page,
                     array(
                          'validationErrorAr' => $validationErrorAr,
                          'questionsAr' => $this->questionsAr,
+                         'q1'          => $q1,
                          'q1Ar'        => $this->q1Ar,
+                         'q2'          => $q2,
                          'q2Ar'        => $this->q2Ar,
+                         'q3'          => $q3,
                          'q3Ar'        => $this->q3Ar,
+                         'q4'          => $q4,
                          'q4Ar'        => $this->q4Ar,
+                         'q5'          => $q5,
                          'q5Ar'        => $this->q5Ar,
+                         'q6'          => $q6,
                          'q6Ar'        => $this->q6Ar,
+                         'q7'          => $q7,
                          'q7Ar'        => $this->q7Ar,
+                         'q8'          => $q8,
                          'q8Ar'        => $this->q8Ar,
+                         'q9'          => $q9,
                          'q9Ar'        => $this->q9Ar,
+                         'q10'         => $q10,
                          'q10Ar'       => $this->q10Ar,
+                         'q11'         => $q11,
+                         'q12'         => $q12,
                          'q13Ar'       => $this->q13Ar,
+                         'q13'         => $q13,
                          'q14Ar'       => $this->q14Ar,
+                         'q14'         => $q14,
                          'q15Ar'       => $this->q15Ar,
+                         'q15'         => $q15,
                          'q16Ar'       => $this->q16Ar,
+                         'q16'         => $q16
                     )
                 );
             }
@@ -897,6 +1001,36 @@ class HomeController extends BaseController {
     }
 
     public function home() {
+
+
+        $report = $this->reports->fetchReport(session_id());
+//echo "<Br/>session before: ".session_id();
+//        $report->step = 'finished';
+        // if we have finished the report, then generate a new session
+        if ($report->step == 'finished') {
+
+            // have we finished?
+            Session::forget('completed_product_questions');
+            Session::forget('completed_questions');
+            Session::forget('page');
+            Session::forget('nextPage');
+            Session::forget('current_product_id');
+            Session::forget('display_question_page');
+
+//echo"<br/>REPORT FINISHED, REGENERATE SESSION";
+            // regenerate session/cookies
+            session_regenerate_id();
+            if (isset($_SERVER['HTTP_COOKIE'])) {
+                $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+                foreach($cookies as $cookie) {
+                    $parts = explode('=', $cookie);
+                    $name = trim($parts[0]);
+                    setcookie($name, '', time()-1000);
+                    setcookie($name, '', time()-1000, '/');
+                }
+            }
+        }
+//echo "<Br/>session after: ".session_id();
         $this->layout->content = View::make('home');        
     }
 
@@ -907,19 +1041,20 @@ class HomeController extends BaseController {
     public function thanks() {
 
         $input = Input::all();
-
+        $report = $this->reports->fetchReport(session_id());
 
         if(!empty($input['email'])) {
 
-            $report         = $this->reports->fetchReport(session_id());
             $email          = $input['email'];
             $opt_in         = (!empty($input['opt_in'])) ? $input['opt_in'] : "no";
             $report->email  = $email;
             $report->opt_in = $opt_in;
 
-            $report->save();
             Session::set('sent_details', "yes");
         }
+
+        $report->step = 'finished';
+        $report->save();
 
         $sent = (Session::has('sent_details') && Session::get('sent_details') == "yes" ) ? true : false;
         $this->layout->content = View::make('thanks', array('sent' => $sent));

@@ -35,6 +35,7 @@
                     <div class="radio">
                         <label class="radio">
                             <input type="radio" name="q15" id="q15"
+                                   <?php echo (stripos($q15, str_replace(array("not very often"), "not really that much", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>
@@ -58,6 +59,7 @@
                     <div class="radio">
                         <label class="radio">
                             <input type="radio" name="q16" id="q16"
+                                <?php echo (stripos($q16, str_replace(array("I prefer not to wrap presents, as I"), "", $qval)) !== false) ? "checked=checked" : ""; ?>
                                    value="<?php echo $qval; ?>">
                             <?php echo $qval; ?>
                         </label>

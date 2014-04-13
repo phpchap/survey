@@ -45,6 +45,7 @@
                     ?>
                     <label class="radio-inline">
                         <input type="radio" name="q10" id="q10"
+                               <?php echo ($q10 == $qval) ? "checked=checked" : ""; ?>
                                value="<?php echo $qval; ?>">
                         <?php echo $qval; ?>
                     </label>
@@ -61,7 +62,7 @@
                         ? " <span class='invalid'>"
                         . $validationErrorAr['q11'] . "</span>" : ""; ?></h4>
                 <label class="radio-inline">
-                    <textarea name="q11" class="form-control" rows="2"></textarea>
+                    <textarea name="q11" class="form-control" rows="2"><?php echo $q11; ?></textarea>
                 </label>
             </div>
         </div>
@@ -73,7 +74,7 @@
                         ? " <span class='invalid'>"
                         . $validationErrorAr['q12'] . "</span>" : ""; ?></h4>
                 <label class="radio-inline">
-                    <textarea name="q12" class="form-control" rows="2"></textarea>
+                    <textarea name="q12" class="form-control" rows="2"><?php echo $q12; ?></textarea>
                 </label>
             </div>
         </div>

@@ -71,7 +71,11 @@ class ImportDataFromCSV extends Command
         $ignoredTitleAr["PRINTS"] = 1;
 
         // set the path to the CSV
-        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_Latest.csv');
+        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_ON SITE_12.04.csv');
+
+        // truncate groups and products
+        DB::select(DB::raw('TRUNCATE groups'));
+        DB::select(DB::raw('TRUNCATE products'));
 
         $counter = 0;
 
