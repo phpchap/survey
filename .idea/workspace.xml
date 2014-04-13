@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/models/EloquentProductRepository.php" afterPath="$PROJECT_DIR$/laravel/app/models/EloquentProductRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" afterPath="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" afterPath="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/models/Report.php" afterPath="$PROJECT_DIR$/laravel/app/models/Report.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/home.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/magicento.xml" afterPath="$PROJECT_DIR$/.idea/magicento.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/products.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/products.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions1.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions1.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions2.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions2.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions3.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions3.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions4.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions4.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions5.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions5.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/questions6.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/questions6.blade.php" />
     </list>
     <ignored path="toowrappedup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +28,7 @@
       <file leaf-file-name="ImportDataFromCSV.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="39" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.16221035" vertical-offset="931" max-vertical-offset="2884">
+            <state line="154" column="40" selection-start="5291" selection-end="5291" vertical-scroll-proportion="0.37611407" vertical-offset="1917" max-vertical-offset="2926">
               <folding />
             </state>
           </provider>
@@ -453,7 +440,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="39" selection-start="1983" selection-end="1983" vertical-scroll-proportion="0.16221035" vertical-offset="931" max-vertical-offset="2884">
+        <state line="154" column="40" selection-start="5291" selection-end="5291" vertical-scroll-proportion="0.37611407" vertical-offset="1917" max-vertical-offset="2926">
           <folding />
         </state>
       </provider>

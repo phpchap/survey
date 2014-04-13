@@ -71,11 +71,14 @@ class ImportDataFromCSV extends Command
         $ignoredTitleAr["PRINTS"] = 1;
 
         // set the path to the CSV
-        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_ON SITE_12.04.csv');
+        $csvFile = new Keboola\Csv\CsvFile(storage_path(). '/csv/Product_Chooser_Inventory_ON_SITE_12_04.csv');
 
         // truncate groups and products
-        DB::select(DB::raw('TRUNCATE groups'));
-        DB::select(DB::raw('TRUNCATE products'));
+
+        DB::delete(DB::raw('SET FOREIGN_KEY_CHECKS = 0'));
+        DB::delete(DB::raw('TRUNCATE groups'));
+        DB::delete(DB::raw('TRUNCATE products'));
+        DB::delete(DB::raw('SET FOREIGN_KEY_CHECKS = 1'));
 
         $counter = 0;
 
@@ -149,7 +152,7 @@ class ImportDataFromCSV extends Command
                     echo "\n Picture URL :: ".$picture_1_url;
                     echo "\n Product Group :: ".$productGroup;
 
-                    $hash = md5(time()."dsfgbse5ysgdrthe65rt");
+                    $hash = md5($itemNo.time()."dsfgbse5ysgdrthe65rt");
 
 
                     $p = new Product;
