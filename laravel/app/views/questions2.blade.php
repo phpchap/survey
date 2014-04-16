@@ -114,7 +114,7 @@
                         <?php echo $qval; ?>
                     </label>
                 <?php } ?>
-                <label class="radio-inline" id="display_q6_why" <?php if($q6why=="") { ?>style="display:none"<?php } ?>>
+                <label class="radio-inline" id="display_q6_why" <?php if($q6!="Never") { ?>style="display:none"<?php } ?>>
                     Please state why?
                     <textarea name="q6_why" class="form-control" rows="2" cols="14"><?php echo $q6why; ?></textarea>
                 </label>

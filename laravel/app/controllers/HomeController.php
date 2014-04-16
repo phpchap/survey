@@ -142,12 +142,11 @@ class HomeController extends BaseController {
         $this->a1Ar[2] = "It's OK";
         $this->a1Ar[3] = "It's great";
 
-        $this->a2Ar[1] = "I wouldn't buy this";
-        $this->a2Ar[2] = "I would buy this for a friend";
-        $this->a2Ar[3] = "I would buy this for someone in my family";
-        $this->a2Ar[4] = "I'd quite like this for myself";
-        $this->a2Ar[5] = "I'd like to buy this for someone right now";
-        $this->a2Ar[6] = "I've seen this product before";
+        $this->a2Ar[1] = "I would buy this for a friend";
+        $this->a2Ar[2] = "I would buy this for someone in my family";
+        $this->a2Ar[3] = "I'd quite like this for myself";
+        $this->a2Ar[4] = "I'd like to buy this for someone right now";
+        $this->a2Ar[5] = "I've seen this product before";
 
     }
 
@@ -234,7 +233,6 @@ class HomeController extends BaseController {
         if(!empty($_GET['e']) && $_GET['e'] = 'x') {
 
             $html = str_get_html($view);
-
 
             header('Content-type: application/ms-excel');
             header('Content-Disposition: attachment; filename=report'.time().'.csv');

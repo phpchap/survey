@@ -92,7 +92,7 @@
                     <?php
                     }
                     ?>
-                    <label class="radio-inline" id="display_q8_why" <?php if($q8why=="") { ?>style="display:none"<?php } ?>>
+                    <label class="radio-inline" id="display_q8_why" <?php if($q8why!="Never") { ?>style="display:none"<?php } ?>>
                         Please state why?
                         <textarea name="q8_why" class="form-control" rows="2"><?php echo $q8why; ?></textarea>
                     </label>
@@ -124,7 +124,7 @@
                 <?php
                 }
                 ?>
-                <label class="radio-inline" id="display_q9_why" <?php if($q9why=="") { ?>style="display:none"<?php } ?>>
+                <label class="radio-inline" id="display_q9_why" <?php if($q9why!="Never") { ?>style="display:none"<?php } ?>>
                     Please state why?
                     <textarea name="q9_why" class="form-control" rows="2"><?php echo $q9why; ?></textarea>
                 </label>

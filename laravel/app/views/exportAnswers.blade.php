@@ -1,4 +1,8 @@
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <table border="1">
     <tr>
         <td>Gifting Survey</td>
@@ -6,70 +10,142 @@
             <td>#</td>
         <?php } ?>
         <td>Product Survey</td>
+        <?php for($i = 1; $i<=451; $i++) { ?>
+            <td>#</td>
+        <?php } ?>
+
     </tr>
     <tr>
-        <th>Respondant</th>
+        <td>Respondant</td>
+        <td>Email</td>
+        <td>Opt-in</td>
+        <?php $qSize = 0; ?>
+        <?php $pqSize = 0; ?>
         <?php foreach($questionsAr as $id => $questions) { ?>
-            <th><?php print($id ." -- ".$questions); ?></th>
+            <td><?php print($questions); ?></td>
             <?php for($i = 1; $i<= ($sizeAnswers[$id] - 1); $i++) { ?>
-                <th>#</th>
-            <?php } ?>
-        <?php } ?>
+                <td>#</td>
+            <?php $qSize++; } ?>
+        <?php $qSize++; } ?>
         <?php foreach($productArray as $id => $product) { ?>
-            <th><?php echo "(".$product->id.") ".$product->title; ?></th>
-                <?php for($i = 1; $i<= count($productQuestionAr) - 1; $i++) { ?>
-                    <th>#</th>
-                <?php } ?>
-        <?php } ?>
+            <td><?php echo "(".$product->id.") ".stripslashes($product->title); ?></td>
+            <?php for($x = 1; $x <= 9; $x++) { ?>
+            <td>#</td>
+            <?php } ?>
+        <?php $pqSize++; } ?>
     </tr>
+
     <tr>
         <td>-</td>
-        <?php foreach($questionsAr as $id => $questions) { ?>
-            <?php foreach($answersAr[$id] as $answer) { ?>
-                <td><?php echo $answer; ?></td>
-            <?php } ?>
+        <td>-</td>
+        <td>-</td>
+        <?php foreach($q1Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q2Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q3Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q4Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q5Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q6Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q7Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q8Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q9Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q10Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach(array('Freetext') as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach(array('Freetext') as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q13Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q14Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q15Ar as $q) { echo "<td>".$q."</td>"; } ?>
+        <?php foreach($q16Ar as $q) { echo "<td>".$q."</td>"; } ?>
+
+        <?php for($i = 1; $i <= 113; $i++) { ?>
+
+            <td>1) What do you think about this?</td>
+            <td>#</td>
+            <td>#</td>
+            <td>2) Please choose all that apply</td>
+            <td>#</td>
+            <td>#</td>
+            <td>#</td>
+            <td>#</td>
+            <td>3) The most I would pay for this is</td>
+            <td>4) Do you have feedback on this product?</td>
+
         <?php } ?>
-        <?php foreach($productArray as $id => $product) { ?>
-            <?php foreach($productQuestionAr as $productQuestion) { ?>
-                <th><?php echo $productQuestion; ?></th>
-            <?php } ?>
+
+    </tr>
+
+    <tr>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <?php for($i = 1; $i<=77; $i++) { ?>
+            <td>#</td>
+        <?php } ?>
+
+        <?php for($i = 1; $i <= 113; $i++) { ?>
+
+            <td>I don't really like this</td>
+            <td>It's OK</td>
+            <td>It's great</td>
+
+            <td>I would buy this for a friend</td>
+            <td>I would buy this for someone in my family</td>
+            <td>I'd quite like this for myself</td>
+            <td>I'd like to buy this for someone right now</td>
+            <td>I've seen this product before</td>
+
+            <td>£</td>
+
+            <td>Feedback</td>
+
         <?php } ?>
     </tr>
 
     <?php
-
-    $reports = DB::select( DB::raw("SELECT * FROM reports"));
+    $filter = (!empty($_GET['finished']) && $_GET['finished'] == 'yes') ? " and step = 'finished' " : "";
+    $sql = "SELECT * FROM reports where 1=1 " . $filter . " and step != ''";
+    $reports = DB::select( DB::raw($sql));
 
     if(count($reports) > 0) {
 
         foreach($reports as $report) {
 
+            $answers = 0;
+
             // general questions first
-            echo "<tr><td>".$report->id."</td>";
+            echo "<tr><td>".$report->id."). IP: ".$report->ip." Started (".date("d/m/Y H:i:s", strtotime($report->created_at)).") Ended (".date("d/m/Y H:i:s", strtotime($report->updated_at)).")</td>";
+            echo "<td>".$report->email."</td>";
+            echo "<td>".$report->opt_in."</td>";
 
             $userAnswers = DB::select( DB::raw("select id,question_number,answer_index,answer from answers where report_id = ".$report->id." order by question_number asc"));
 
-            foreach($userAnswers as $userAnswer) {
+            if(!empty($userAnswers)) {
 
-                $anAr = array();
+                foreach($userAnswers as $userAnswer) {
 
-                if(isset($userAnswer->answer_index)) {
-                    if(stripos(str_replace(" ","",$userAnswer->answer_index), ",") !== false) {
-                        $anAr = explode(",", $userAnswer->answer_index);
-                    } else {
-                        $anAr = array($userAnswer->answer_index);
+                    $anAr = array();
+
+                    if(isset($userAnswer->answer_index)) {
+                        if(stripos(str_replace(" ","",$userAnswer->answer_index), ",") !== false) {
+                            $anAr = explode(",", $userAnswer->answer_index);
+                        } else {
+                            $anAr = array($userAnswer->answer_index);
+                        }
                     }
-                }
 
-                for($i = 0; $i <= count($answersAr[$userAnswer->question_number]) - 1; $i++) {
-                    if(($userAnswer->question_number == 11) || ($userAnswer->question_number == 12) && ($userAnswer->answer_index == 0 )) {
-                        echo "<td>".$userAnswer->answer."</td>";
-                    } else if( $i == 0 && ($userAnswer->question_number == 8 || $userAnswer->question_number == 9) && ($userAnswer->answer_index == 0 || $userAnswer->answer_index == "")) {
-                        echo "<td>".$userAnswer->answer."</td>";
-                    } else if(in_array($i, $anAr)) {
-                        echo "<td>1</td>";
-                    } else {
-                        echo "<td>#</td>";
+                    for($i = 0; $i <= count($answersAr[$userAnswer->question_number]) - 1; $i++) {
+                        if(($userAnswer->question_number == 11) || ($userAnswer->question_number == 12) && ($userAnswer->answer_index == 0 )) {
+                            $answers++;
+                            echo "<td>".$userAnswer->answer."</td>";
+                        } else if( $i == 0 && ($userAnswer->question_number == 8 || $userAnswer->question_number == 9) && ($userAnswer->answer_index == 0 || $userAnswer->answer_index == "")) {
+                            $answers++;
+                            echo "<td>".$userAnswer->answer."</td>";
+                        } else if(in_array($i, $anAr)) {
+                            $answers++;
+                            echo "<td>1</td>";
+                        } else {
+                            $answers++;
+                            echo "<td>#</td>";
+                        }
                     }
                 }
             }
@@ -78,65 +154,121 @@
             $sql = "select product_id,report_id,answer_one_index,answer_two_index,answer_three,answer_four from product_answers where report_id = ".$report->id." order by product_id asc";
             $productAnswers = DB::select( DB::raw($sql));
 
-
             if(!empty($productAnswers)) {
 
                 unset($userProductAnswer);
 
                 foreach($productAnswers as $productAnswer) {
-
                     $answerPos = ($productPosition[$productAnswer->product_id] + 1);
                     $userProductAnswer[$answerPos] = $productAnswer;
                 }
 
-
                 foreach($productArray as $id => $product) {
 
-                    if(!empty($userProductAnswer[$id]) && $report->id == 4) {
+                    if(!empty($userProductAnswer[$id])) {
 
                         $userAnswer = $userProductAnswer[$id];
 
+                        // first question
+                        foreach(array(1,2,3) as $qq) {
 
-                        echo "<td>";
-                        print (isset($userAnswer->answer_one_index) && !empty($a1Ar[$userAnswer->answer_one_index])) ? $a1Ar[$userAnswer->answer_one_index] : '';
-                        echo "</td>";
-                        echo "<td>";
-
-                        if(isset($userAnswer->answer_two_index) && !empty($userAnswer->answer_two_index)) {
-
-                            if(is_int(stripos($userAnswer->answer_two_index,","))) {
-                                $ap = explode(",", $userAnswer->answer_two_index);
-                                $bp = array();
-                                foreach($ap as $answer) {
-                                    $aa = ($answer + 1);
-                                    $bp[] = $a2Ar[$aa];
-                                }
-
-                                echo implode("<br/><br/>", $bp);
-                            } else if(!empty($a2Ar[$userAnswer->answer_two_index])) {
-                                echo $a2Ar[$userAnswer->answer_two_index];
+                            if(isset($userAnswer->answer_one_index) && $userAnswer->answer_one_index == $qq) {
+                                echo "<td>1</td>";
+                                $answers++;
+                            } else {
+                                echo "<td>#</td>";
+                                $answers++;
                             }
-                        } else {
-                            echo '';
                         }
 
-                        echo "</td>";
-                        echo "<td>";
-                        print (isset($userAnswer->answer_three) && ctype_digit($userAnswer->answer_three)) ? '£'.html_entity_decode($userAnswer->answer_three, ENT_QUOTES, "UTF-8") : '';
-                        print "</td>";
-                        echo "<td>";
-                        print (isset($userAnswer->answer_four)) ? $userAnswer->answer_four : '';
-                        print "</td>";
+                       // second question
+                        foreach(array(0,1,2,3,4) as $qqq) {
+
+                            if(isset($userAnswer->answer_two_index)) {
+
+                                if (stripos($userAnswer->answer_two_index, ",") !== false) {
+
+                                    $found = false;
+
+                                    foreach(explode(", ", $userAnswer->answer_two_index) as $exa) {
+
+                                        // ??? wtf..
+                                        if($exa == $qqq) {
+                                            $found = true;
+                                        }
+                                    }
+
+                                    if($found) {
+                                        echo "<td>1</td>";
+                                        $answers++;
+                                    } else {
+                                        echo "<td>#</td>";
+                                        $answers++;
+                                    }
+
+                                } else {
+
+                                    if($qqq == $userAnswer->answer_two_index) {
+                                        $answers++;
+                                        echo "<td>1</td>";
+                                    } else {
+                                        $answers++;
+                                        echo "<td>#</td>";
+                                    }
+                                }
+
+                            } else {
+                                echo "<td>#</td>";
+                                echo "<td>#</td>";
+                                echo "<td>#</td>";
+                                echo "<td>#</td>";
+                                echo "<td>#</td>";
+                                echo "<td>#</td>";
+                                $answers++;
+                                $answers++;
+                                $answers++;
+                                $answers++;
+                                $answers++;
+                                $answers++;
+                            }
+                        }
+
+                        if(isset($userAnswer->answer_three)) {
+                            $answers++;
+                            echo "<td>£".$userAnswer->answer_three."</td>";
+                        } else {
+                            $answers++;
+                            echo "<td>#</td>";
+                        }
+
+
+                        if(!empty($userAnswer->answer_four)) {
+                            $answers++;
+                            echo "<td>".$userAnswer->answer_four."</td>";
+                        } else {
+                            $answers++;
+                            echo "<td>#</td>";
+                        }
+
                     } else {
-                        for($i = 1; $i <= 4; $i++) {
+                        for($i = 1; $i <= 10; $i++) {
+                            $answers++;
                             echo "<td>#</td>";
                         }
                     }
                 }
             }
-        ?></tr><?php
+            // for people who dont finish, fill out the rest of the table
+            if($answers < 1207) {
+                $unanswered = (1207 - $answers);
+                for($i = 1; $i <= $unanswered; $i++) {
+                    echo "<td>#</td>";
+                }
+            }
         }
     }
+
+
     ?>
 
 </table>
