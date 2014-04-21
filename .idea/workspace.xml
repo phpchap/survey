@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/public/index.php" afterPath="$PROJECT_DIR$/laravel/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="toowrappedup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +28,7 @@
       <file leaf-file-name="HomeController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="0" selection-start="9414" selection-end="9414" vertical-scroll-proportion="0.33955225" vertical-offset="3108" max-vertical-offset="14980">
+            <state line="227" column="36" selection-start="9246" selection-end="9246" vertical-scroll-proportion="0.026119404" vertical-offset="3164" max-vertical-offset="14980">
               <folding />
             </state>
           </provider>
@@ -403,7 +401,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="0" selection-start="9414" selection-end="9414" vertical-scroll-proportion="0.33955225" vertical-offset="3108" max-vertical-offset="14980">
+        <state line="227" column="36" selection-start="9246" selection-end="9246" vertical-scroll-proportion="0.026119404" vertical-offset="3164" max-vertical-offset="14980">
           <folding />
         </state>
       </provider>

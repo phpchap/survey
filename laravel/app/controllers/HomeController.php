@@ -232,7 +232,7 @@ class HomeController extends BaseController {
 
         if(!empty($_GET['e']) && $_GET['e'] = 'x') {
 
-            $html = str_get_html($view->render());
+            $html = str_get_html($view);
 
             header('Content-type: application/ms-excel');
             header('Content-Disposition: attachment; filename=report'.time().'.csv');
