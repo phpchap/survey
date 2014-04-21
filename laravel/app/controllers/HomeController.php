@@ -232,7 +232,7 @@ class HomeController extends BaseController {
 
         if(!empty($_GET['e']) && $_GET['e'] = 'x') {
 
-            $html = str_get_html($view);
+            $html = str_get_html($view->render());
 
             header('Content-type: application/ms-excel');
             header('Content-Disposition: attachment; filename=report'.time().'.csv');
@@ -260,6 +260,7 @@ class HomeController extends BaseController {
             fclose($fp);
 
         } else {
+
             echo $view;
         }
     }
