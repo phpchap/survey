@@ -10,7 +10,7 @@
             <td>#</td>
         <?php } ?>
         <td>Product Survey</td>
-        <?php for($i = 1; $i<=451; $i++) { ?>
+        <?php for($i = 1; $i<=1131; $i++) { ?>
             <td>#</td>
         <?php } ?>
 
@@ -159,8 +159,8 @@
                 unset($userProductAnswer);
 
                 foreach($productAnswers as $productAnswer) {
-                    $answerPos = ($productPosition[$productAnswer->product_id] + 1);
-                    $userProductAnswer[$answerPos] = $productAnswer;
+                    $product = ($productArray[$productAnswer->product_id]);
+                    $userProductAnswer[$product->id] = $productAnswer;
                 }
 
                 foreach($productArray as $id => $product) {
@@ -184,13 +184,14 @@
                        // second question
                         foreach(array(0,1,2,3,4) as $qqq) {
 
-                            if(isset($userAnswer->answer_two_index)) {
+                            $found = false;
+                            $answerTwo = (string)$userAnswer->answer_two_index;
 
-                                if (stripos($userAnswer->answer_two_index, ",") !== false) {
+                            if(strlen($answerTwo) > 0) {
 
-                                    $found = false;
+                                if (stripos($answerTwo, ",") !== false) {
 
-                                    foreach(explode(", ", $userAnswer->answer_two_index) as $exa) {
+                                    foreach(explode(", ", $answerTwo) as $exa) {
 
                                         // ??? wtf..
                                         if($exa == $qqq) {
@@ -208,7 +209,7 @@
 
                                 } else {
 
-                                    if($qqq == $userAnswer->answer_two_index) {
+                                    if($qqq == $answerTwo) {
                                         $answers++;
                                         echo "<td>1</td>";
                                     } else {
@@ -216,31 +217,20 @@
                                         echo "<td>#</td>";
                                     }
                                 }
-
                             } else {
                                 echo "<td>#</td>";
-                                echo "<td>#</td>";
-                                echo "<td>#</td>";
-                                echo "<td>#</td>";
-                                echo "<td>#</td>";
-                                echo "<td>#</td>";
-                                $answers++;
-                                $answers++;
-                                $answers++;
-                                $answers++;
-                                $answers++;
                                 $answers++;
                             }
                         }
 
+
                         if(isset($userAnswer->answer_three)) {
-                            $answers++;
+
                             echo "<td>£".$userAnswer->answer_three."</td>";
                         } else {
                             $answers++;
                             echo "<td>#</td>";
                         }
-
 
                         if(!empty($userAnswer->answer_four)) {
                             $answers++;
@@ -259,8 +249,8 @@
                 }
             }
             // for people who dont finish, fill out the rest of the table
-            if($answers < 1207) {
-                $unanswered = (1207 - $answers);
+            if($answers < 1179) {
+                $unanswered = (1179 - $answers);
                 for($i = 1; $i <= $unanswered; $i++) {
                     echo "<td>#</td>";
                 }

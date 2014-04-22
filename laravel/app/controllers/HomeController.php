@@ -194,19 +194,25 @@ class HomeController extends BaseController {
         $allProducts = DB::select( DB::raw("select id,group_id,title from products order by id asc") );
 
         // product position array
-        $productPosition = array();
-        $cnt = 0;
+//        $productPosition = array();
+        $cnt = 1;
         foreach($allProducts as $p => $i) {
-            $productPosition[$i->id] = $cnt;
+//            $productPosition[$i->id] = $cnt;
             $productArray[$i->id] = $i;
             $cnt++;
         }
-
+//echo "";
+//echo "<table border='1'><tr><td><pre>";
+//print_r($productPosition);
+//echo "</td><td><pre>";
+//print_r($productArray);
+//echo "</td></tr>";
+//die;
         $view = View::make('exportAnswers',
             array(
             'a1Ar' => $this->a1Ar,
             'a2Ar' => $this->a2Ar,
-            'productPosition' => $productPosition,
+//            'productPosition' => $productPosition,
             'productArray' => $productArray,
             'productQuestionAr' => $this->qAr,
             'allProducts' => $allProducts,

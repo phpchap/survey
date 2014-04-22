@@ -47,7 +47,9 @@ class EloquentReportRepository
 
         if($report->session_id == null) {
             $report->session_id = session_id();
-            $report->ip = $_SERVER['REMOTE_ADDR'];
+            if(!empty($_SERVER['REMOTE_ADDR'])) {
+                $report->ip = $_SERVER['REMOTE_ADDR'];
+            }
             $report->save();
         }
 

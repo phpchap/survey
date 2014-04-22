@@ -30,5 +30,8 @@ Route::any('/thanks', 'HomeController@thanks');
 // exportAnswers
 Route::any('/exportAnswers', 'HomeController@exportAnswers');
 
+// productAnswers
+Route::any('/productAnswers', 'HomeController@productAnswers');
+
 // about us
 Route::any('/about-us', 'HomeController@aboutUs');

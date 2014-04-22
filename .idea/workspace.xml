@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ade8f2a-138d-4e14-910c-a2ab98b13fbd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" afterPath="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" afterPath="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" afterPath="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/magicento.xml" afterPath="$PROJECT_DIR$/.idea/magicento.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laravel/app/routes.php" afterPath="$PROJECT_DIR$/laravel/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="toowrappedup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,19 +30,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HomeController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laravel/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="36" selection-start="9246" selection-end="9246" vertical-scroll-proportion="0.026119404" vertical-offset="3164" max-vertical-offset="14980">
+            <state line="33" column="60" selection-start="970" selection-end="984" vertical-scroll-proportion="-0.0" vertical-offset="462" max-vertical-offset="602">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/laravel/public/index.php">
+      <file leaf-file-name="HomeController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="31" selection-start="3428" selection-end="3428" vertical-scroll-proportion="-8.272727" vertical-offset="784" max-vertical-offset="25270">
+            <state line="199" column="30" selection-start="8234" selection-end="8250" vertical-scroll-proportion="0.0" vertical-offset="2608" max-vertical-offset="15064">
+              <folding>
+                <marker date="1398156895217" expanded="true" signature="8373:9497" placeholder="..." />
+                <marker date="1398156895217" expanded="true" signature="8377:9497" placeholder="..." />
+                <marker date="1398156895217" expanded="true" signature="8381:9497" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exportAnswers.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="104" column="40" selection-start="3672" selection-end="3672" vertical-scroll-proportion="0.34416825" vertical-offset="1276" max-vertical-offset="3766">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laravel/app/start/global.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="54" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.0" vertical-offset="644" max-vertical-offset="1232">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laravel/app/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0" vertical-offset="104" max-vertical-offset="2660">
               <folding />
             </state>
           </provider>
@@ -61,10 +97,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/laravel/app/views/thanks.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/home.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/models/Report.php" />
-        <option value="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/products.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/models/EloquentProductRepository.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/questions1.blade.php" />
@@ -74,18 +108,36 @@
         <option value="$PROJECT_DIR$/laravel/app/commands/ImportDataFromCSV.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/questions2.blade.php" />
         <option value="$PROJECT_DIR$/laravel/app/views/questions3.blade.php" />
-        <option value="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" />
         <option value="$PROJECT_DIR$/laravel/public/index.php" />
+        <option value="$PROJECT_DIR$/laravel/app/routes.php" />
         <option value="$PROJECT_DIR$/laravel/app/controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php" />
+        <option value="$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php" />
       </list>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="Local PHP 5.3.10" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="22" />
     <option name="width" value="1368" />
     <option name="height" value="746" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -113,6 +165,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -149,6 +202,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toowrappedup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="toowrappedup" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="laravel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -171,13 +242,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -185,7 +255,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="Configurable.PHP.Debug" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wedo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../investomedia" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -206,8 +276,15 @@
       <recent name="$PROJECT_DIR$/laravel/app/storage" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.HomeController.php">
+  <component name="RunManager" selected="PHP Script.index.php">
     <configuration default="false" name="HomeController.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/laravel/public/index.php">
+      <RunnerSettings RunnerId="PhpScriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="PhpScriptDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -223,12 +300,14 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="PHP Script.HomeController.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.index.php" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.HomeController.php" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.HomeController.php" />
       </list>
     </recent_temporary>
   </component>
@@ -267,8 +346,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.56578946" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22272727" sideWeight="0.5432331" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4567669" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -278,6 +357,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43421054" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -296,12 +376,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php</url>
-          <line>757</line>
+          <line>763</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php</url>
-          <line>307</line>
+          <line>313</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -309,31 +389,21 @@
           <line>154</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php</url>
+          <line>160</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/laravel/public/index.php</url>
+          <line>72</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/laravel/app/models/ProductAnswer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="563" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="-7.8297873" vertical-offset="892" max-vertical-offset="2562" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/models/ProductRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="157" selection-end="157" vertical-scroll-proportion="0.15526803" vertical-offset="0" max-vertical-offset="541" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/views/thanks.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="14" selection-start="849" selection-end="849" vertical-scroll-proportion="0.49910873" vertical-offset="0" max-vertical-offset="561" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/products.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="65" selection-start="923" selection-end="923" vertical-scroll-proportion="0.5620438" vertical-offset="0" max-vertical-offset="2282" />
@@ -364,44 +434,70 @@
         <state line="155" column="0" selection-start="5323" selection-end="5323" vertical-scroll-proportion="0.40106952" vertical-offset="1917" max-vertical-offset="2926" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="43" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.609489" vertical-offset="1122" max-vertical-offset="3906">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/questions2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="77" selection-start="4779" selection-end="4779" vertical-scroll-proportion="1.2463504" vertical-offset="941" max-vertical-offset="1890">
-          <folding />
-        </state>
+        <state line="116" column="77" selection-start="4779" selection-end="4779" vertical-scroll-proportion="1.2463504" vertical-offset="941" max-vertical-offset="1890" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/questions3.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="87" selection-start="5182" selection-end="5182" vertical-scroll-proportion="1.0819964" vertical-offset="1157" max-vertical-offset="2044">
-          <folding />
-        </state>
+        <state line="126" column="87" selection-start="5182" selection-end="5182" vertical-scroll-proportion="1.0819964" vertical-offset="1157" max-vertical-offset="2044" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/views/questions4.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="86" selection-start="3177" selection-end="3177" vertical-scroll-proportion="1.1319073" vertical-offset="429" max-vertical-offset="1316">
-          <folding />
-        </state>
+        <state line="76" column="86" selection-start="3177" selection-end="3177" vertical-scroll-proportion="1.1319073" vertical-offset="429" max-vertical-offset="1316" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laravel/public/index.php">
+    <entry file="file://$PROJECT_DIR$/laravel/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="31" selection-start="3428" selection-end="3428" vertical-scroll-proportion="-8.272727" vertical-offset="784" max-vertical-offset="25270">
+        <state line="33" column="60" selection-start="970" selection-end="984" vertical-scroll-proportion="-0.0" vertical-offset="462" max-vertical-offset="602">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laravel/app/controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="36" selection-start="9246" selection-end="9246" vertical-scroll-proportion="0.026119404" vertical-offset="3164" max-vertical-offset="14980">
+        <state line="199" column="30" selection-start="8234" selection-end="8250" vertical-scroll-proportion="0.0" vertical-offset="2608" max-vertical-offset="15064">
+          <folding>
+            <marker date="1398156895217" expanded="true" signature="8373:9497" placeholder="..." />
+            <marker date="1398156895217" expanded="true" signature="8377:9497" placeholder="..." />
+            <marker date="1398156895217" expanded="true" signature="8381:9497" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/app/start/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="54" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.0" vertical-offset="644" max-vertical-offset="1232">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/app/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="443" selection-end="443" vertical-scroll-proportion="0.0" vertical-offset="104" max-vertical-offset="2660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/app/models/EloquentReportRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="47" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.7798742" vertical-offset="424" max-vertical-offset="2590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="31" selection-start="3220" selection-end="3220" vertical-scroll-proportion="-0.12773722" vertical-offset="952" max-vertical-offset="25270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laravel/app/views/exportAnswers.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="40" selection-start="3672" selection-end="3672" vertical-scroll-proportion="0.34416825" vertical-offset="1276" max-vertical-offset="3766">
           <folding />
         </state>
       </provider>
